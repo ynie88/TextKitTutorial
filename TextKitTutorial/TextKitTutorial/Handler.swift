@@ -11,6 +11,21 @@ import UIKit
 
 class Handler : NSObject, UITextViewDelegate {
     func textView(textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool {
+        
+        if let image = textAttachment.image {
+            let imageVC = EnlargeImageVC()
+            imageVC.configWithImage(image)
+            AppDelegate.instance.window?.rootViewController?.presentViewController(imageVC, animated: true, completion: nil)
+        }
+        else if let contents = textAttachment.fileWrapper?.regularFileContents{
+            if let image = UIImage(data: contents) {
+                let imageVC = EnlargeImageVC()
+                imageVC.configWithImage(image)
+                AppDelegate.instance.window?.rootViewController?.presentViewController(imageVC, animated: true, completion: nil)
+            }
+        }
+        print(textAttachment)
+        
         return true
     }
     

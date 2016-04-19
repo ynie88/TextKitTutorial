@@ -6,5 +6,8 @@ use_frameworks!
 
 target ‘TextKitTutorial’ do
 	pod 'SnapKit'
+    pod 'Kanna'
+    pod 'Appendix'
+    pod 'AlamofireImage'
 end
 

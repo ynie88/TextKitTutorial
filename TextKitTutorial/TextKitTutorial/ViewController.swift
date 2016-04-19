@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import Kanna
+import Appendix
 
 class ViewController: UIViewController {
     private lazy var label:UILabel = {label in
@@ -23,11 +25,18 @@ class ViewController: UIViewController {
         _textView.textContainer.lineBreakMode   = .ByWordWrapping
         _textView.delaysContentTouches          = false
         _textView.textContainerInset            = UIEdgeInsetsZero
-        _textView.text                          = "I am wess@email.com and my website is http://www.wess.com text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text textm text text text text text text text"
         _textView.editable                      = false
         _textView.selectable                    = true
+        
+        _textView.onClick = { (string, type, range) in
+            print("CLICKED: \(type.description) :: \(string) :: \(range)")
+        }
+        
+        _textView.detected = { (string, type, range) in
+            print("DETECTED: \(type.description) :: \(string) :: \(range)")
+        }
+        
         self.view.addSubview(_textView)
-        _textView.insertImage("kitten", image: UIImage(named: "BrownCat")!, size: CGSizeMake(30, 60), at: 95)
         return _textView
     }(WWTextView())
     
@@ -37,7 +46,9 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor.whiteColor()
         view.setNeedsUpdateConstraints()
         view.updateConstraintsIfNeeded()
-        textView.insertImage("grayCat", image: UIImage(named: "grayCat")!, size: CGSizeMake(192, 120), at: 30)
+        //textView.insertImage("grayCat", image: UIImage(named: "grayCat")!, size: CGSizeMake(192, 120), at: 30)
+        
+        loadHTML()
     }
 
     override func updateViewConstraints() {
@@ -53,11 +64,27 @@ class ViewController: UIViewController {
         }
         super.updateViewConstraints()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func loadHTML() {
+        let str = HelperFunctions.getHTMLFromFile("DiscourseOne")
+        
+        textView.attributedText = str.html2String
+        textView.insertImage("grayCat", image: UIImage(named: "grayCat")!, width: 130)
+        defer{
+            let ranges = textView.imageRanges()
+            print(ranges)
+        }
 
-
+        if let doc = Kanna.HTML(html: str, encoding: NSUTF8StringEncoding) {
+            for img in doc.css("img") {
+                print(img["width"])
+            }
+        }
+    }
 }
 
