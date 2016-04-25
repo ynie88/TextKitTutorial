@@ -17,8 +17,18 @@ class EnlargeImageVC: UIViewController {
         return imageView
     }(UIImageView())
     
+    private lazy var closeButton:UIButton = {button in
+        button.setTitle("close", forState: .Normal)
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.addTarget(self, action: #selector(self.close), forControlEvents: .TouchUpInside)
+        button.userInteractionEnabled = true
+        self.view.addSubview(button)
+        return button
+    }(UIButton())
+    
     func configWithImage(image:UIImage) {
         imageView.image = image
+
         view.setNeedsUpdateConstraints()
         view.updateConstraintsIfNeeded()
     }
@@ -28,6 +38,16 @@ class EnlargeImageVC: UIViewController {
             make.leading.trailing.equalTo(self.view)
             make.centerY.equalTo(self.view)
         }
+        
+        closeButton.snp_updateConstraints { (make) in
+            make.leading.equalTo(self.view).offset(10)
+            make.top.equalTo(self.view).offset(10)
+        }
+        
         super.updateViewConstraints()
+    }
+    
+    func close() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C10D1431CC8325F0063EFB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C10D1421CC8325F0063EFB2 /* AppDelegate.swift */; };
+		4C10D1451CC8325F0063EFB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C10D1441CC8325F0063EFB2 /* ViewController.swift */; };
+		4C10D1481CC8325F0063EFB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C10D1461CC8325F0063EFB2 /* Main.storyboard */; };
+		4C10D14A1CC8325F0063EFB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C10D1491CC8325F0063EFB2 /* Assets.xcassets */; };
+		4C10D14D1CC8325F0063EFB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C10D14B1CC8325F0063EFB2 /* LaunchScreen.storyboard */; };
+		4C10D1581CC8325F0063EFB2 /* HoustonRocketsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C10D1571CC8325F0063EFB2 /* HoustonRocketsTests.swift */; };
+		4C10D1631CC8325F0063EFB2 /* HoustonRocketsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C10D1621CC8325F0063EFB2 /* HoustonRocketsUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4C10D1541CC8325F0063EFB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C10D1371CC8325F0063EFB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C10D13E1CC8325F0063EFB2;
+			remoteInfo = HoustonRockets;
+		};
+		4C10D15F1CC8325F0063EFB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C10D1371CC8325F0063EFB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C10D13E1CC8325F0063EFB2;
+			remoteInfo = HoustonRockets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4C10D13F1CC8325F0063EFB2 /* HoustonRockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoustonRockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C10D1421CC8325F0063EFB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4C10D1441CC8325F0063EFB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C10D1471CC8325F0063EFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4C10D1491CC8325F0063EFB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C10D14C1CC8325F0063EFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4C10D14E1CC8325F0063EFB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C10D1531CC8325F0063EFB2 /* HoustonRocketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoustonRocketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C10D1571CC8325F0063EFB2 /* HoustonRocketsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoustonRocketsTests.swift; sourceTree = "<group>"; };
+		4C10D1591CC8325F0063EFB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C10D15E1CC8325F0063EFB2 /* HoustonRocketsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoustonRocketsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C10D1621CC8325F0063EFB2 /* HoustonRocketsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoustonRocketsUITests.swift; sourceTree = "<group>"; };
+		4C10D1641CC8325F0063EFB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C10D13C1CC8325F0063EFB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C10D1501CC8325F0063EFB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C10D15B1CC8325F0063EFB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C10D1361CC8325F0063EFB2 = {
+			isa = PBXGroup;
+			children = (
+				4C10D1411CC8325F0063EFB2 /* HoustonRockets */,
+				4C10D1561CC8325F0063EFB2 /* HoustonRocketsTests */,
+				4C10D1611CC8325F0063EFB2 /* HoustonRocketsUITests */,
+				4C10D1401CC8325F0063EFB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4C10D1401CC8325F0063EFB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C10D13F1CC8325F0063EFB2 /* HoustonRockets.app */,
+				4C10D1531CC8325F0063EFB2 /* HoustonRocketsTests.xctest */,
+				4C10D15E1CC8325F0063EFB2 /* HoustonRocketsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C10D1411CC8325F0063EFB2 /* HoustonRockets */ = {
+			isa = PBXGroup;
+			children = (
+				4C10D1421CC8325F0063EFB2 /* AppDelegate.swift */,
+				4C10D1441CC8325F0063EFB2 /* ViewController.swift */,
+				4C10D1461CC8325F0063EFB2 /* Main.storyboard */,
+				4C10D1491CC8325F0063EFB2 /* Assets.xcassets */,
+				4C10D14B1CC8325F0063EFB2 /* LaunchScreen.storyboard */,
+				4C10D14E1CC8325F0063EFB2 /* Info.plist */,
+			);
+			path = HoustonRockets;
+			sourceTree = "<group>";
+		};
+		4C10D1561CC8325F0063EFB2 /* HoustonRocketsTests */ = {
+			isa = PBXGroup;
+			children = (
+				4C10D1571CC8325F0063EFB2 /* HoustonRocketsTests.swift */,
+				4C10D1591CC8325F0063EFB2 /* Info.plist */,
+			);
+			path = HoustonRocketsTests;
+			sourceTree = "<group>";
+		};
+		4C10D1611CC8325F0063EFB2 /* HoustonRocketsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4C10D1621CC8325F0063EFB2 /* HoustonRocketsUITests.swift */,
+				4C10D1641CC8325F0063EFB2 /* Info.plist */,
+			);
+			path = HoustonRocketsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C10D13E1CC8325F0063EFB2 /* HoustonRockets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C10D1671CC8325F0063EFB2 /* Build configuration list for PBXNativeTarget "HoustonRockets" */;
+			buildPhases = (
+				4C10D13B1CC8325F0063EFB2 /* Sources */,
+				4C10D13C1CC8325F0063EFB2 /* Frameworks */,
+				4C10D13D1CC8325F0063EFB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HoustonRockets;
+			productName = HoustonRockets;
+			productReference = 4C10D13F1CC8325F0063EFB2 /* HoustonRockets.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4C10D1521CC8325F0063EFB2 /* HoustonRocketsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C10D16A1CC8325F0063EFB2 /* Build configuration list for PBXNativeTarget "HoustonRocketsTests" */;
+			buildPhases = (
+				4C10D14F1CC8325F0063EFB2 /* Sources */,
+				4C10D1501CC8325F0063EFB2 /* Frameworks */,
+				4C10D1511CC8325F0063EFB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C10D1551CC8325F0063EFB2 /* PBXTargetDependency */,
+			);
+			name = HoustonRocketsTests;
+			productName = HoustonRocketsTests;
+			productReference = 4C10D1531CC8325F0063EFB2 /* HoustonRocketsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4C10D15D1CC8325F0063EFB2 /* HoustonRocketsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C10D16D1CC8325F0063EFB2 /* Build configuration list for PBXNativeTarget "HoustonRocketsUITests" */;
+			buildPhases = (
+				4C10D15A1CC8325F0063EFB2 /* Sources */,
+				4C10D15B1CC8325F0063EFB2 /* Frameworks */,
+				4C10D15C1CC8325F0063EFB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C10D1601CC8325F0063EFB2 /* PBXTargetDependency */,
+			);
+			name = HoustonRocketsUITests;
+			productName = HoustonRocketsUITests;
+			productReference = 4C10D15E1CC8325F0063EFB2 /* HoustonRocketsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C10D1371CC8325F0063EFB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = WeddingWire;
+				TargetAttributes = {
+					4C10D13E1CC8325F0063EFB2 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					4C10D1521CC8325F0063EFB2 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 4C10D13E1CC8325F0063EFB2;
+					};
+					4C10D15D1CC8325F0063EFB2 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 4C10D13E1CC8325F0063EFB2;
+					};
+				};
+			};
+			buildConfigurationList = 4C10D13A1CC8325F0063EFB2 /* Build configuration list for PBXProject "HoustonRockets" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4C10D1361CC8325F0063EFB2;
+			productRefGroup = 4C10D1401CC8325F0063EFB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4C10D13E1CC8325F0063EFB2 /* HoustonRockets */,
+				4C10D1521CC8325F0063EFB2 /* HoustonRocketsTests */,
+				4C10D15D1CC8325F0063EFB2 /* HoustonRocketsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4C10D13D1CC8325F0063EFB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C10D14D1CC8325F0063EFB2 /* LaunchScreen.storyboard in Resources */,
+				4C10D14A1CC8325F0063EFB2 /* Assets.xcassets in Resources */,
+				4C10D1481CC8325F0063EFB2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C10D1511CC8325F0063EFB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C10D15C1CC8325F0063EFB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C10D13B1CC8325F0063EFB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C10D1451CC8325F0063EFB2 /* ViewController.swift in Sources */,
+				4C10D1431CC8325F0063EFB2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C10D14F1CC8325F0063EFB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C10D1581CC8325F0063EFB2 /* HoustonRocketsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C10D15A1CC8325F0063EFB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C10D1631CC8325F0063EFB2 /* HoustonRocketsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C10D1551CC8325F0063EFB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C10D13E1CC8325F0063EFB2 /* HoustonRockets */;
+			targetProxy = 4C10D1541CC8325F0063EFB2 /* PBXContainerItemProxy */;
+		};
+		4C10D1601CC8325F0063EFB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C10D13E1CC8325F0063EFB2 /* HoustonRockets */;
+			targetProxy = 4C10D15F1CC8325F0063EFB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4C10D1461CC8325F0063EFB2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C10D1471CC8325F0063EFB2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4C10D14B1CC8325F0063EFB2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C10D14C1CC8325F0063EFB2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4C10D1651CC8325F0063EFB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4C10D1661CC8325F0063EFB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4C10D1681CC8325F0063EFB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HoustonRockets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.HoustonRockets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4C10D1691CC8325F0063EFB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HoustonRockets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.HoustonRockets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4C10D16B1CC8325F0063EFB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HoustonRocketsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.HoustonRocketsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HoustonRockets.app/HoustonRockets";
+			};
+			name = Debug;
+		};
+		4C10D16C1CC8325F0063EFB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HoustonRocketsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.HoustonRocketsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HoustonRockets.app/HoustonRockets";
+			};
+			name = Release;
+		};
+		4C10D16E1CC8325F0063EFB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HoustonRocketsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.HoustonRocketsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HoustonRockets;
+			};
+			name = Debug;
+		};
+		4C10D16F1CC8325F0063EFB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HoustonRocketsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.HoustonRocketsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HoustonRockets;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C10D13A1CC8325F0063EFB2 /* Build configuration list for PBXProject "HoustonRockets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C10D1651CC8325F0063EFB2 /* Debug */,
+				4C10D1661CC8325F0063EFB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C10D1671CC8325F0063EFB2 /* Build configuration list for PBXNativeTarget "HoustonRockets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C10D1681CC8325F0063EFB2 /* Debug */,
+				4C10D1691CC8325F0063EFB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4C10D16A1CC8325F0063EFB2 /* Build configuration list for PBXNativeTarget "HoustonRocketsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C10D16B1CC8325F0063EFB2 /* Debug */,
+				4C10D16C1CC8325F0063EFB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4C10D16D1CC8325F0063EFB2 /* Build configuration list for PBXNativeTarget "HoustonRocketsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C10D16E1CC8325F0063EFB2 /* Debug */,
+				4C10D16F1CC8325F0063EFB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C10D1371CC8325F0063EFB2 /* Project object */;
+}

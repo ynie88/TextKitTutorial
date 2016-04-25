@@ -6,8 +6,11 @@ use_frameworks!
 
 target ‘TextKitTutorial’ do
 	pod 'SnapKit'
-    pod 'Kanna'
+    #pod 'Kanna'
     pod 'Appendix'
     pod 'AlamofireImage'
+    #pod 'OHAttributedStringAdditions'
+    pod 'StringStylizer'
+    pod 'Fuzi'
 end
 

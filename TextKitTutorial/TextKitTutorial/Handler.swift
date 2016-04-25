@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+enum urlScheme:String {
+    case webURL = "http"
+    case webURLS = "https"
+    case mention = "mention"
+    case hashtag = "hashtag"
+}
+
 class Handler : NSObject, UITextViewDelegate {
     func textView(textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool {
         
@@ -30,17 +37,41 @@ class Handler : NSObject, UITextViewDelegate {
     }
     
     func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
-        let textString: NSString    = textView.text
-        let str                     = textString.substringWithRange(characterRange)
+        print("host name: \(URL.host)")
+        print("scheme: \(URL.scheme)")
         
-        if let dataType = textView.attributedText.attribute(DetectedDataHandlerAttributeName, atIndex: characterRange.location, effectiveRange: nil) as? Int {
-            
-            (textView as! WWTextView).onClick?(string: str, type: DetectedType(rawValue: dataType)!, range: characterRange)
-            
+        let name = textView.attributedText.attributedSubstringFromRange(characterRange)
+        
+        var message = ""
+        switch URL.scheme {
+        case urlScheme.hashtag.rawValue:
+            message = "Open Hashtag \(name)"
+        case urlScheme.mention.rawValue:
+            message = "Open Mention \(name)"
+        default:
+            message = "open website with url: \(URL.absoluteString)"
         }
         
-        return true
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil))
+        
+        AppDelegate.instance.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+        
+        return false
     }
+    
+//    func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
+//        let textString: NSString    = textView.text
+//        let str                     = textString.substringWithRange(characterRange)
+//        
+//        if let dataType = textView.attributedText.attribute(DetectedDataHandlerAttributeName, atIndex: characterRange.location, effectiveRange: nil) as? Int {
+//            
+//            (textView as! WWTextView).onClick?(string: str, type: DetectedType(rawValue: dataType)!, range: characterRange)
+//            
+//        }
+//        
+//        return true
+//    }
     
     func textViewDidChange(textView: UITextView) {
         if let textStorage = textView.layoutManager.textStorage as? TextStorage {

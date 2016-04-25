@@ -60,7 +60,7 @@ class TextStorage : NSTextStorage {
         let paragraphRange = (self.string as NSString).paragraphRangeForRange(self.editedRange)
         
         self.removeAttribute(NSForegroundColorAttributeName, range: paragraphRange)
-        self.removeAttribute(NSLinkAttributeName, range: paragraphRange)
+        //self.removeAttribute(NSLinkAttributeName, range: paragraphRange)
         self.removeAttribute(DetectedDataHandlerAttributeName, range: paragraphRange)
         
         if let textStyles = textStyles {
