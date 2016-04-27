@@ -14,7 +14,7 @@ import StringStylizer
 struct HelperFunctions {
     static func getHTMLFromFile(fileName:String) -> String{
         let url = NSBundle.mainBundle().URLForResource(fileName, withExtension:"html")
-        guard let fileContent = try? NSString(contentsOfURL: url!, encoding: NSUTF8StringEncoding) else {return ""}
+        guard let fileContent = try? NSString(contentsOfURL: url!, encoding: NSNonLossyASCIIStringEncoding) else {return ""}
         return fileContent as String
     }
     
@@ -30,18 +30,10 @@ struct HelperFunctions {
         do {
             //let document = try XMLDocument(string: string)
             let document = try HTMLDocument(string: string)
-
-//            if let root = document.root?.firstChild(xpath: "//") {
-//                for element in root.children {
-//                    print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
-//                    elements.append(element)
-//                }
-//            }
             
             if let root = document.root![0] {
                 for element in root.children {
-                    //print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
-                    print("rawXML: \(element.rawXML)")
+                    print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
                     elements.append(element)
                 }
             }

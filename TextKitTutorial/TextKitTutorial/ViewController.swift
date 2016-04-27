@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Appendix
 import StringStylizer
+import Fuzi
 
 class ViewController: UIViewController, UITextViewDelegate {
     private lazy var label:UILabel = {label in
@@ -71,7 +72,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         if let htmlString = HelperFunctions.getJSONValueFromFile("SampleHTMLParsingPost", key: "cooked") {
             //print("htmlStirng = \(htmlString)")
             let elements = HelperFunctions.getElementsFromString(htmlString)
-            let attrStr = self.buildAttributedStringWithXMLElements(elements)
+            let attrStr = buildAttributedStringWithXMLElements(elements)
+            print(attrStr)
             textView.attributedText = attrStr
         }
     }
@@ -87,7 +89,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         let attrStr = NSMutableAttributedString()
         for element in elements {
             if let tag = element.tag {
-                print("tag \(tag)")
+                print("tag: \(tag)")
+                print("attributes: \(element.attributes)")
                 if tag == "img" {
                     let attributes = element.attributes
                     let src = attributes["src"]!
@@ -112,21 +115,26 @@ class ViewController: UIViewController, UITextViewDelegate {
                         let attributedString = NSMutableAttributedString(string: element.stringValue)
                         attributedString.addAttribute(NSLinkAttributeName, value: href, range: NSMakeRange(0, element.stringValue.length))
                         attrStr.appendAttributedString(attributedString)
+                    } else {
+                        let attributedString = NSMutableAttributedString(string: element.stringValue)
+                        attributedString.addAttribute(NSLinkAttributeName, value: "mention", range: NSMakeRange(0, element.stringValue.length))
+                        attrStr.appendAttributedString(attributedString)
                     }
 
                 } else {
-//                    let htmlString = element.rawXML
-//                    guard let encodedData = htmlString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true) else {continue}
-//                    let attributedOptions : [String: AnyObject] = [
-//                        NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-//                        NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding
-//                    ]
-//                    do {
-//                        let attributedString = try NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
-//                    }catch (let error){
-//                        print("error: \(error)")
-//                    }
-                    
+                    let htmlString = element.rawXML
+                    print("htmlString: \(htmlString)")
+                    guard let encodedData = htmlString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true) else {continue}
+                    let attributedOptions : [String: AnyObject] = [
+                        NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                        NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding
+                    ]
+                    do {
+                        let attributedString = try NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
+                    }catch (let error){
+                        print("error: \(error)")
+                    }
+//
                     let stringValue = element.stringValue
                     
                     let attributedString:NSAttributedString
@@ -151,7 +159,10 @@ class ViewController: UIViewController, UITextViewDelegate {
                     } else if tag == "br" {
                         attributedString = NSAttributedString(string: "\n")
                     } else {
-                        attributedString = NSAttributedString(string: stringValue)
+                        let data = stringValue.dataUsingEncoding(NSUTF8StringEncoding)
+                        let str = String(data: data!, encoding: NSNonLossyASCIIStringEncoding)
+                        
+                        attributedString = NSAttributedString(string: str!)
                     }
                     attrStr.appendAttributedString(attributedString)
                 }
