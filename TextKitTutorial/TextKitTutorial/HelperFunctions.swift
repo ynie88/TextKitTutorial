@@ -26,17 +26,22 @@ struct HelperFunctions {
     
     static func getElementsFromString(string:String) -> [XMLElement]{
         var elements = [XMLElement]()
-        let newStr = string.stringByReplacingOccurrencesOfString("<br>", withString: "<br></br>").stringByReplacingOccurrencesOfString("<p>", withString: "<br></br> ").stringByReplacingOccurrencesOfString("</p>", withString: " ")
+        //let newStr = string.stringByReplacingOccurrencesOfString("<br>", withString: "<br></br>").stringByReplacingOccurrencesOfString("<p>", withString: "<br></br> ").stringByReplacingOccurrencesOfString("</p>", withString: " ")
         do {
-            let document = try HTMLDocument(string: newStr)
+            //let document = try XMLDocument(string: string)
+            let document = try HTMLDocument(string: string)
+
+//            if let root = document.root?.firstChild(xpath: "//") {
+//                for element in root.children {
+//                    print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
+//                    elements.append(element)
+//                }
+//            }
             
             if let root = document.root![0] {
                 for element in root.children {
-//                    for subElement in element.children {
-//                        print("sub element: tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
-//                        elements.append(subElement)
-//                    }
-                    print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
+                    //print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
+                    print("rawXML: \(element.rawXML)")
                     elements.append(element)
                 }
             }
@@ -45,6 +50,18 @@ struct HelperFunctions {
             
         }
         return elements
+    }
+    
+    static func getJSONValueFromFile(fileName:String, key:String) -> String? {
+        guard let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "json") else {return nil}
+        guard let jsonData = try? NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe) else {return nil}
+        guard let jsonResult = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) else {return nil}
+        guard let stream = jsonResult["post_stream"] as? NSDictionary else {return nil}
+        guard let posts = stream["posts"] as! NSArray? else {return nil}
+        let firstPost = posts[0] as! NSDictionary
+        
+        guard let str = firstPost[key] as? String else {return nil}
+        return str
     }
     
     static func convertSizeForImage(originalSize:CGSize, containerSize:CGSize) -> CGSize {

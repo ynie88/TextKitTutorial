@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 import Appendix
-import Fuzi
 import StringStylizer
 
 class ViewController: UIViewController, UITextViewDelegate {
@@ -32,13 +31,6 @@ class ViewController: UIViewController, UITextViewDelegate {
         _textView.editable                      = false
 //        _textView.selectable                    = true
         _textView.userInteractionEnabled        = true
-        _textView.onClick = { (string, type, range) in
-            print("CLICKED: \(type.description) :: \(string) :: \(range)")
-        }
-        
-        _textView.detected = { (string, type, range) in
-            print("DETECTED: \(type.description) :: \(string) :: \(range)")
-        }
         
         self.view.addSubview(_textView)
         return _textView
@@ -51,8 +43,9 @@ class ViewController: UIViewController, UITextViewDelegate {
         view.setNeedsUpdateConstraints()
         view.updateConstraintsIfNeeded()
         //textView.insertImage("grayCat", image: UIImage(named: "grayCat")!, size: CGSizeMake(192, 120), at: 30)
+        loadHTMLFromFile()
         
-        loadHTML()
+        //loadHTML()
     }
 
     override func updateViewConstraints() {
@@ -74,6 +67,15 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func loadHTMLFromFile() {
+        if let htmlString = HelperFunctions.getJSONValueFromFile("SampleHTMLParsingPost", key: "cooked") {
+            //print("htmlStirng = \(htmlString)")
+            let elements = HelperFunctions.getElementsFromString(htmlString)
+            let attrStr = self.buildAttributedStringWithXMLElements(elements)
+            textView.attributedText = attrStr
+        }
+    }
+    
     func loadHTML() {
         let str = HelperFunctions.getHTMLFromFile("DiscourseTwo")
         elements = HelperFunctions.getElementsFromString(str)
@@ -85,6 +87,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         let attrStr = NSMutableAttributedString()
         for element in elements {
             if let tag = element.tag {
+                print("tag \(tag)")
                 if tag == "img" {
                     let attributes = element.attributes
                     let src = attributes["src"]!
@@ -112,6 +115,18 @@ class ViewController: UIViewController, UITextViewDelegate {
                     }
 
                 } else {
+//                    let htmlString = element.rawXML
+//                    guard let encodedData = htmlString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true) else {continue}
+//                    let attributedOptions : [String: AnyObject] = [
+//                        NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+//                        NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding
+//                    ]
+//                    do {
+//                        let attributedString = try NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
+//                    }catch (let error){
+//                        print("error: \(error)")
+//                    }
+                    
                     let stringValue = element.stringValue
                     
                     let attributedString:NSAttributedString
