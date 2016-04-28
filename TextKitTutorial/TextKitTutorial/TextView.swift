@@ -18,7 +18,8 @@ class WWTextView : UITextView {
     var placeholderLabel    = UILabel(frame: .zero)
     let tapInset            = UIEdgeInsets(top: -2, left: -2, bottom: -2, right: -2)
     
-    private var prettyStorage       = TextStorage()
+    //private var prettyStorage       = TextStorage()
+    private var prettyStorage       = NSTextStorage()
     private var prettyLayoutManager = NSLayoutManager()
     private var prettyContainer     = NSTextContainer()
 
@@ -248,7 +249,7 @@ extension WWTextView /* Imaging */ {
         }
     }
     
-    func insertImage(name:String, image:UIImage, size:CGSize, at index:Int) {
+    func insertImage(name:String, image:UIImage, size:CGSize, at index:Int) -> NSRange{
         let attachment      = NSTextAttachment(data: nil, ofType: nil)
         attachment.image    = image
         attachment.bounds   = CGRectMake(0, 0, size.width, size.height)
@@ -263,9 +264,18 @@ extension WWTextView /* Imaging */ {
             
             if let attrString = self.attributedText.mutableCopy() as? NSMutableAttributedString {
                 attrString.insertAttributedString(attachmentAttributedString, atIndex: index)
-                
+                let range = NSMakeRange(index, attachmentAttributedString.length)
                 self.attributedText = attrString
+                return range
             }
+        }
+        return NSMakeRange(0, 0)
+    }
+    
+    func removeImage(range:NSRange){
+        if let attrString = self.attributedText.mutableCopy() as? NSMutableAttributedString {
+            attrString.replaceCharactersInRange(range, withString: "")
+            self.attributedText = attrString
         }
     }
 }

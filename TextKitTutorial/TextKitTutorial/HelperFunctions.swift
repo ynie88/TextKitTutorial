@@ -24,8 +24,8 @@ struct HelperFunctions {
         return try! NSAttributedString(data: unformattedString.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
     }
     
-    static func getElementsFromString(string:String) -> [XMLElement]{
-        var elements = [XMLElement]()
+    static func getElementsFromString(string:String) -> [WWXMLElement]{
+        var elements = [WWXMLElement]()
         //let newStr = string.stringByReplacingOccurrencesOfString("<br>", withString: "<br></br>").stringByReplacingOccurrencesOfString("<p>", withString: "<br></br> ").stringByReplacingOccurrencesOfString("</p>", withString: " ")
         do {
             //let document = try XMLDocument(string: string)
@@ -34,9 +34,17 @@ struct HelperFunctions {
             if let root = document.root![0] {
                 for element in root.children {
                     print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
-                    elements.append(element)
+                    for (index, subItems) in element.css("a").enumerate(){
+                        print("index: \(index), element attributes: \(subItems.attributes), element string value: \(element.stringValue), \(element.rawXML)")
+                    }
+                    let wwElement = WWXMLElement(element: element, raw: element.rawXML)
+                    elements.append(wwElement)
                 }
             }
+            
+//            for (index, element) in document.css("a").enumerate(){
+//                print("index: \(index), element: \(element.attributes)")
+//            }
             
         } catch {
             
