@@ -69,47 +69,15 @@ class HTMLParser {
                             let attributedString = try NSAttributedString(data: encodedData!, options: attributedOptions, documentAttributes: nil)
                             //let attributedString = try NSAttributedString(string: htmlString, attributes: attributedOptions)
                             attrStr.appendAttributedString(attributedString)
-                            for var imageStruct in innerImageTags.images {
+                            for (index, var imageStruct) in innerImageTags.images.enumerate() {
                                 let length = attrStr.length
-                                imageStruct.index = length
+                                imageStruct.index = length + index
                                 imageTags.append(imageStruct)
                             }
                         }catch (let error){
                             print("error: \(error)")
                         }
                     }
-
-                    
-//                    let stringValue = element.stringValue
-//                    
-//                    let attributedString:NSAttributedString
-//                    if tag == "strong" {
-//                        attributedString = stringValue.stylize().size(16).font(StringStylizerFontName.HelveticaNeue_Bold).attr
-//                    } else if tag == "em" {
-//                        attributedString = stringValue.stylize().size(14).font(StringStylizerFontName.HelveticaNeue_Italic).attr
-//                    } else if tag == "ul" {
-//                        let paragraphStyle = NSMutableParagraphStyle()
-//                        paragraphStyle.paragraphSpacing = 4
-//                        paragraphStyle.paragraphSpacingBefore = 3
-//                        paragraphStyle.firstLineHeadIndent = 0.0
-//                        paragraphStyle.headIndent = 10.5
-//                        
-//                        let mutableStr = NSMutableAttributedString(string: stringValue + "\n")
-//                        mutableStr.addAttributes([NSParagraphStyleAttributeName:paragraphStyle], range: NSMakeRange(0, stringValue.length))
-//                        attributedString = mutableStr as NSAttributedString
-//                        //                        attributedString = stringValue.stylize().size(14).paragraph(paragraphStyle).attr
-//                        
-//                    } else if tag == "h2" {
-//                        attributedString = stringValue.stylize().size(18).font(StringStylizerFontName.HelveticaNeue_Bold).attr
-//                    } else if tag == "br" {
-//                        attributedString = NSAttributedString(string: "\n")
-//                    } else {
-//                        let data = stringValue.dataUsingEncoding(NSUTF8StringEncoding)
-//                        let str = String(data: data!, encoding: NSNonLossyASCIIStringEncoding)
-//                        
-//                        attributedString = NSAttributedString(string: str!)
-//                    }
-//                    attrStr.appendAttributedString(attributedString)
                 }
             }
         }
