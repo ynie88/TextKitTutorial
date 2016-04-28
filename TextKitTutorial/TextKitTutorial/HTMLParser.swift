@@ -30,13 +30,12 @@ class HTMLParser {
                 if tag == "img" {
                     let attributes = element.attributes
                     let src = attributes["src"]!
-                    let width = CGFloat((attributes["width"]! as NSString).floatValue)*0.9
-                    let height = CGFloat((attributes["height"]! as NSString).floatValue)*0.9
+                    let width = CGFloat((attributes["width"]! as NSString).floatValue)
+                    let height = CGFloat((attributes["height"]! as NSString).floatValue)
                     
                     let length = attrStr.length
                     let size = CGSizeMake(width, height)
                     
-                    print("length: \(length)")
                     
                     let imageType = ImageTypeStruct(src: src, key: src, size: size, index: length)
                     imageTags.append(imageType)
@@ -60,17 +59,21 @@ class HTMLParser {
                     
                 } else {
                     if let htmlString = wwelement.raw {
-                        print("htmlString: \(htmlString)")
-                        //guard let encodedData = htmlString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true) else {continue}
+                        let innerImageTags = getImageTags(htmlString)
                         let attributedOptions : [String: AnyObject] = [
                             NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
                             NSCharacterEncodingDocumentAttribute: NSUTF16StringEncoding
                         ]
                         do {
-                            let encodedData = htmlString.dataUsingEncoding(NSUTF16StringEncoding)
+                            let encodedData = innerImageTags.htmlWithNoImages.dataUsingEncoding(NSUTF16StringEncoding)
                             let attributedString = try NSAttributedString(data: encodedData!, options: attributedOptions, documentAttributes: nil)
                             //let attributedString = try NSAttributedString(string: htmlString, attributes: attributedOptions)
                             attrStr.appendAttributedString(attributedString)
+                            for var imageStruct in innerImageTags.images {
+                                let length = attrStr.length
+                                imageStruct.index = length
+                                imageTags.append(imageStruct)
+                            }
                         }catch (let error){
                             print("error: \(error)")
                         }
@@ -113,16 +116,51 @@ class HTMLParser {
         
         return (attrStr, imageTags)
     }
+    //remove image tags
+    func getImageTags(string:String) -> (htmlWithNoImages:String, images:[ImageTypeStruct]){
+        var images:[ImageTypeStruct] = [ImageTypeStruct]()
+        var newString = string
+        do {
+            let htmlDoc = try HTMLDocument(string: string)
+            
+            for (_, image) in htmlDoc.css("img").enumerate() {
+                let attributes = image.attributes
+                let src = attributes["src"]!
+                let width = CGFloat((attributes["width"]! as NSString).floatValue)
+                let height = CGFloat((attributes["height"]! as NSString).floatValue)
+
+                let imageType = ImageTypeStruct(src: src, key: src, size: CGSizeMake(width, height) , index: 100)
+                images.append(imageType)
+                
+            }
+            
+            if images.count > 0{
+                newString = self.removeImageTags(string)
+            }
+            
+            
+        }catch(let error){
+            print(error)
+        }
+        return (newString, images)
+    }
     
-    static func fromColor(color: UIColor, size:CGSize) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, rect)
-        let img = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return img
+    func removeImageTags(string:String)->String {
+        let startIndex = string.indexOf("<img")
+        
+        let range = startIndex..<string.endIndex
+        let endIndex = string.indexOfWithRange("/>", range: range)
+        
+        let newRange = startIndex..<endIndex
+        
+        let newString = string.stringByReplacingCharactersInRange(newRange, withString: "")
+        let checkIndex = newString.indexOf("<img")
+        if checkIndex != string.startIndex {
+            return removeImageTags(newString)
+        } else {
+            return newString
+        }
+        
     }
 
 }
@@ -131,7 +169,7 @@ struct ImageTypeStruct {
     let src:String!
     let key:String!
     let size:CGSize!
-    let index:Int!
+    var index:Int!
     var imageRange:NSRange?
     
     init(src:String, key:String, size:CGSize, index:Int){
@@ -139,5 +177,15 @@ struct ImageTypeStruct {
         self.key = key
         self.size = size
         self.index = index
+    }
+}
+
+extension String {
+    func indexOf(string: String) -> Index {
+        return rangeOfString(string, options: .LiteralSearch, range: nil, locale: nil)?.startIndex ?? startIndex
+    }
+    
+    func indexOfWithRange(string: String, range:Range<String.Index>) -> Index {
+        return rangeOfString(string, options: .LiteralSearch, range: range, locale: nil)?.endIndex ?? startIndex
     }
 }

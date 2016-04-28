@@ -35,7 +35,7 @@ struct HelperFunctions {
                 for element in root.children {
                     print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
                     for (index, subItems) in element.css("a").enumerate(){
-                        print("index: \(index), element attributes: \(subItems.attributes), element string value: \(element.stringValue), \(element.rawXML)")
+                        //print("index: \(index), element attributes: \(subItems.attributes), element string value: \(element.stringValue), \(element.rawXML)")
                     }
                     let wwElement = WWXMLElement(element: element, raw: element.rawXML)
                     elements.append(wwElement)
