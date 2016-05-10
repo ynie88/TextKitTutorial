@@ -18,7 +18,6 @@ class WWTextView : UITextView {
     var placeholderLabel    = UILabel(frame: .zero)
     let tapInset            = UIEdgeInsets(top: -2, left: -2, bottom: -2, right: -2)
     
-    //private var prettyStorage       = TextStorage()
     private var prettyStorage       = NSTextStorage()
     private var prettyLayoutManager = NSLayoutManager()
     private var prettyContainer     = NSTextContainer()
@@ -55,22 +54,6 @@ class WWTextView : UITextView {
             placeholderLabel.frame = placeholderFrame(placeholderLabel.bounds)
         }
     }
-    
-//    override var editable: Bool {
-//        didSet {
-//            if editable {
-//                if let tapGestureRecognizer = tapGestureRecognizer {
-//                    removeGestureRecognizer(tapGestureRecognizer)
-//                }
-//            }
-//            else {
-//                tapGestureRecognizer            = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
-//                tapGestureRecognizer?.delegate  = self
-//                
-//                addGestureRecognizer(tapGestureRecognizer!)
-//            }
-//        }
-//    }
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)

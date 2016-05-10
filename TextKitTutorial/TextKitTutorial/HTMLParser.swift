@@ -30,8 +30,7 @@ class HTMLParser {
             
             if let root = document.root![0] {
                 for element in root.children {
-                    print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
-                    let wwElement = WWXMLElement(element: element, raw: element.rawXML)
+                    let wwElement = WWXMLElement(element: element, raw: element.rawXML, attributes: element.attributes, tag: element.tag, stringValue: element.stringValue)
                     elements.append(wwElement)
                 }
             }
@@ -169,7 +168,6 @@ class HTMLParser {
             })
         }
     }
-
 }
 
 struct HTMLParserConstants {

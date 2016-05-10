@@ -60,19 +60,6 @@ class Handler : NSObject, UITextViewDelegate {
         return false
     }
     
-//    func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
-//        let textString: NSString    = textView.text
-//        let str                     = textString.substringWithRange(characterRange)
-//        
-//        if let dataType = textView.attributedText.attribute(DetectedDataHandlerAttributeName, atIndex: characterRange.location, effectiveRange: nil) as? Int {
-//            
-//            (textView as! WWTextView).onClick?(string: str, type: DetectedType(rawValue: dataType)!, range: characterRange)
-//            
-//        }
-//        
-//        return true
-//    }
-    
     func textViewDidChange(textView: UITextView) {
         if let textStorage = textView.layoutManager.textStorage as? TextStorage {
             let targetLocation = textView.selectedRange.location
