@@ -37,6 +37,11 @@ class ViewController: UIViewController, UITextViewDelegate {
         return _textView
     }(WWTextView())
     
+    private lazy var htmlParser:HTMLParser = {
+        let htmlParser = HTMLParser(textView: self.textView)
+        return htmlParser
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
@@ -69,25 +74,9 @@ class ViewController: UIViewController, UITextViewDelegate {
     func loadHTMLFromFile() {
         if let htmlString = HelperFunctions.getJSONValueFromFile("SampleHTMLParsingPost", key: "cooked") {
             //print("htmlStirng = \(htmlString)")
-            let elements = HelperFunctions.getElementsFromString(htmlString)
-            let htmlParser = HTMLParser(textView: self.textView)
-            let attrStr = htmlParser.buildAttributedStringWithXMLElements(elements)
+            let attrStr = htmlParser.getAttributedStringAndImagesFromHTML(htmlString)
             textView.attributedText = attrStr.attrString
-            insertImages(attrStr.images)
-        }
-    }
-    
-    func insertImages(images:[ImageTypeStruct]) {
-        for var imageType in images {
-            let placeholderImage = UIImage(named: "gray")
-            imageType.imageRange = self.textView.insertImage("placeholderImage", image: placeholderImage!, size: imageType.size, at: imageType.index)
-            
-            ImageLoader.sharedLoader.imageForUrl(imageType.src, completionHandler: { (image, url) in
-                if let image = image, let range = imageType.imageRange {
-                    self.textView.removeImage(range)
-                    self.textView.insertImage("Image", image: image, size: imageType.size, at: imageType.index)
-                }
-            })
+            htmlParser.insertImages(attrStr.images)
         }
     }
 }

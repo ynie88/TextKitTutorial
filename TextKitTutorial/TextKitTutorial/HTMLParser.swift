@@ -8,9 +8,7 @@
 
 import Foundation
 import Fuzi
-import StringStylizer
-
-let imageTag = "INSERTIMAGEHERE"
+import Kingfisher
 
 class HTMLParser {
     let textView:WWTextView!
@@ -19,7 +17,31 @@ class HTMLParser {
         self.textView = textView
     }
     
-    func buildAttributedStringWithXMLElements(wwElements:[WWXMLElement])->(attrString: NSAttributedString, images:[ImageTypeStruct]) {
+    func getAttributedStringAndImagesFromHTML(string:String)->(attrString:NSAttributedString, images:[ImageTypeStruct]) {
+        let elements = getElementsFromString(string)
+        return buildAttributedStringWithXMLElements(elements)
+    }
+    
+    private func getElementsFromString(string:String) -> [WWXMLElement]{
+        var elements = [WWXMLElement]()
+        
+        do {
+            let document = try HTMLDocument(string: string)
+            
+            if let root = document.root![0] {
+                for element in root.children {
+                    print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
+                    let wwElement = WWXMLElement(element: element, raw: element.rawXML)
+                    elements.append(wwElement)
+                }
+            }
+        } catch {
+            
+        }
+        return elements
+    }
+    
+    private func buildAttributedStringWithXMLElements(wwElements:[WWXMLElement])->(attrString: NSAttributedString, images:[ImageTypeStruct]) {
         
         let attrStr = NSMutableAttributedString()
         var imageTags:[ImageTypeStruct] = [ImageTypeStruct]()
@@ -27,33 +49,24 @@ class HTMLParser {
         for wwelement in wwElements {
             let element = wwelement.element
             if let tag = element.tag {
-                if tag == "img" {
+                if tag == HTMLParserConstants.HTMLTypes.image {
                     let attributes = element.attributes
-                    let src = attributes["src"]!
-                    let width = CGFloat((attributes["width"]! as NSString).floatValue)
-                    let height = CGFloat((attributes["height"]! as NSString).floatValue)
-                    
                     let length = attrStr.length
-                    let size = CGSizeMake(width, height)
-                    
-                    
-                    let imageType = ImageTypeStruct(src: src, key: src, size: size, index: length)
-                    imageTags.append(imageType)
-                    
-//                    let attributedString = NSAttributedString(string: src)
-//                    attrStr.appendAttributedString(attributedString)
-                    
-                } else if tag == "a" {
-                    if var href = element.attributes["href"] {
-                        if let linkClass = element.attributes["class"]{
-                            href = linkClass + ":/" + href
+                    if let imageType = buildImageTypeStruct(attributes, index: length) {
+                        imageTags.append(imageType)
+                    }
+
+                } else if tag == HTMLParserConstants.HTMLTypes.link {
+                    if var href = element.attributes[HTMLParserConstants.ClassTypes.href] {
+                        if let linkClass = element.attributes[HTMLParserConstants.ClassTypes.kClass]{
+                            href = linkClass + HTMLParserConstants.HTMLConstants.separator + href
                         }
                         let attributedString = NSMutableAttributedString(string: element.stringValue)
                         attributedString.addAttribute(NSLinkAttributeName, value: href, range: NSMakeRange(0, element.stringValue.length))
                         attrStr.appendAttributedString(attributedString)
                     } else {
                         let attributedString = NSMutableAttributedString(string: element.stringValue)
-                        attributedString.addAttribute(NSLinkAttributeName, value: "mention", range: NSMakeRange(0, element.stringValue.length))
+                        attributedString.addAttribute(NSLinkAttributeName, value: HTMLParserConstants.ClassTypes.mention, range: NSMakeRange(0, element.stringValue.length))
                         attrStr.appendAttributedString(attributedString)
                     }
                     
@@ -67,7 +80,6 @@ class HTMLParser {
                         do {
                             let encodedData = innerImageTags.htmlWithNoImages.dataUsingEncoding(NSUTF16StringEncoding)
                             let attributedString = try NSAttributedString(data: encodedData!, options: attributedOptions, documentAttributes: nil)
-                            //let attributedString = try NSAttributedString(string: htmlString, attributes: attributedOptions)
                             attrStr.appendAttributedString(attributedString)
                             for (index, var imageStruct) in innerImageTags.images.enumerate() {
                                 let length = attrStr.length
@@ -84,22 +96,19 @@ class HTMLParser {
         
         return (attrStr, imageTags)
     }
+    
     //remove image tags
-    func getImageTags(string:String) -> (htmlWithNoImages:String, images:[ImageTypeStruct]){
+    private func getImageTags(string:String) -> (htmlWithNoImages:String, images:[ImageTypeStruct]){
         var images:[ImageTypeStruct] = [ImageTypeStruct]()
         var newString = string
         do {
             let htmlDoc = try HTMLDocument(string: string)
             
-            for (_, image) in htmlDoc.css("img").enumerate() {
+            for (_, image) in htmlDoc.css(HTMLParserConstants.HTMLTypes.image).enumerate() {
                 let attributes = image.attributes
-                let src = attributes["src"]!
-                let width = CGFloat((attributes["width"]! as NSString).floatValue)
-                let height = CGFloat((attributes["height"]! as NSString).floatValue)
-
-                let imageType = ImageTypeStruct(src: src, key: src, size: CGSizeMake(width, height) , index: 100)
-                images.append(imageType)
-                
+                if let imageType = buildImageTypeStruct(attributes) {
+                    images.append(imageType)
+                }
             }
             
             if images.count > 0{
@@ -113,16 +122,28 @@ class HTMLParser {
         return (newString, images)
     }
     
-    func removeImageTags(string:String)->String {
-        let startIndex = string.indexOf("<img")
+    private func buildImageTypeStruct(attributes:[String:String], index:Int = 0) -> ImageTypeStruct? {
+        if let src = attributes[HTMLParserConstants.ClassTypes.source], width = attributes[HTMLParserConstants.ClassTypes.width], height = attributes[HTMLParserConstants.ClassTypes.height], widthFlt = Float(width), heightFlt = Float(height) {
+            
+            let widthCG = CGFloat(widthFlt)
+            let heightCG = CGFloat(heightFlt)
+            
+            return ImageTypeStruct(src: src, key: src, size: CGSizeMake(widthCG, heightCG) , index: index)
+        }
+        return nil
+    }
+    
+    private func removeImageTags(string:String)->String {
+        let imageTag = HTMLParserConstants.HTMLConstants.openBracket + HTMLParserConstants.HTMLTypes.image
+        let startIndex = string.indexOf(imageTag)
         
         let range = startIndex..<string.endIndex
-        let endIndex = string.indexOfWithRange("/>", range: range)
+        let endIndex = string.indexOfWithRange(HTMLParserConstants.HTMLConstants.closeBracket, range: range)
         
         let newRange = startIndex..<endIndex
         
         let newString = string.stringByReplacingCharactersInRange(newRange, withString: "")
-        let checkIndex = newString.indexOf("<img")
+        let checkIndex = newString.indexOf(imageTag)
         if checkIndex != string.startIndex {
             return removeImageTags(newString)
         } else {
@@ -130,7 +151,47 @@ class HTMLParser {
         }
         
     }
+    
+    func insertImages(images:[ImageTypeStruct]) {
+        for var imageType in images {
+            let placeholderImage = UIImage(named: "gray")
+            imageType.imageRange = self.textView.insertImage("placeholderImage", image: placeholderImage!, size: imageType.size, at: imageType.index)
+            
+            KingfisherManager.sharedManager.retrieveImageWithURL(NSURL(string: imageType.src)!, optionsInfo: nil, progressBlock: nil, completionHandler: { [weak self](image, error, cacheType, imageURL) in
+                
+                dispatch_async(dispatch_get_main_queue(), { 
+                    if let _self = self, image = image, range = imageType.imageRange {
+                        _self.textView.removeImage(range)
+                        _self.textView.insertImage("Image", image: image, size: imageType.size, at: imageType.index)
+                    }
+                })
+                
+            })
+        }
+    }
 
+}
+
+struct HTMLParserConstants {
+    struct HTMLTypes {
+        static let image    = "img"
+        static let link     = "a"
+    }
+    
+    struct ClassTypes {
+        static let width    = "width"
+        static let height   = "height"
+        static let source   = "src"
+        static let mention  = "mention"
+        static let href     = "href"
+        static let kClass   = "class"
+    }
+    
+    struct HTMLConstants {
+        static let openBracket  = "<"
+        static let closeBracket = "/>"
+        static let separator    = ":/"
+    }
 }
 
 struct ImageTypeStruct {

@@ -8,9 +8,7 @@ target ‘TextKitTutorial’ do
 	pod 'SnapKit'
     #pod 'Kanna'
     pod 'Appendix'
-    pod 'AlamofireImage'
-    #pod 'OHAttributedStringAdditions'
-    pod 'StringStylizer'
     pod 'Fuzi'
+    pod 'Kingfisher'
 end
 
