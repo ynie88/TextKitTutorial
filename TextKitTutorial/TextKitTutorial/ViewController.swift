@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 import Appendix
-import StringStylizer
 import Fuzi
 
 class ViewController: UIViewController, UITextViewDelegate {

@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Fuzi
-import StringStylizer
 
 struct HelperFunctions {
     static func getHTMLFromFile(fileName:String) -> String{
