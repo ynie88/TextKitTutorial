@@ -31,31 +31,18 @@ class Handler : NSObject, UITextViewDelegate {
                 AppDelegate.instance.window?.rootViewController?.presentViewController(imageVC, animated: true, completion: nil)
             }
         }
-        print(textAttachment)
         
         return true
     }
     
     func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
-        print("host name: \(URL.host)")
-        print("scheme: \(URL.scheme)")
         
-        let name = textView.attributedText.attributedSubstringFromRange(characterRange)
-        
-        var message = ""
-        switch URL.scheme {
-        case urlScheme.hashtag.rawValue:
-            message = "Open Hashtag \(name)"
-        case urlScheme.mention.rawValue:
-            message = "Open Mention \(name)"
-        default:
-            message = "open website with url: \(URL.absoluteString)"
+        let text = textView.attributedText.attributedSubstringFromRange(characterRange).string
+        if text.rangeOfString("@") != nil {
+            //This is a mention, open user's profile
+        } else {
+            //This is a link, open page via webview
         }
-        
-        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil))
-        
-        AppDelegate.instance.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
         
         return false
     }
@@ -91,6 +78,6 @@ class Handler : NSObject, UITextViewDelegate {
     }
     
     func detected(textView: UITextView, string: String, type: DetectedType, range: NSRange) {
-        (textView as! WWTextView).detected?(string: string, type: type, range: range)
+        (textView as! WWHTMLTextView).detected?(string: string, type: type, range: range)
     }
 }

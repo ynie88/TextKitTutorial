@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WWTextView : UITextView {
+class WWHTMLTextView : UITextView {
     var onClick:((string:String, type:DetectedType, range:NSRange) -> Void)?
     var detected:((string:String, type:DetectedType, range:NSRange) -> Void)?
     var tapGestureRecognizer:UITapGestureRecognizer?
@@ -111,13 +111,13 @@ class WWTextView : UITextView {
     }
 }
 
-extension WWTextView /* Actions */ {
+extension WWHTMLTextView /* Actions */ {
     func clickedDetected(string:String, type:DetectedType, range:NSRange) {
         onClick?(string:string, type:type, range:range)
     }
 }
 
-extension WWTextView /* Detection */ {
+extension WWHTMLTextView /* Detection */ {
     func urlsAt(location:CGPoint, complete:(NSRange) -> ()) {
         var found = false
         
@@ -175,7 +175,7 @@ extension WWTextView /* Detection */ {
     }
 }
 
-extension WWTextView /* Imaging */ {
+extension WWHTMLTextView /* Imaging */ {
     func imageRanges() -> [[String : NSRange]] {
         var ranges = [[String : NSRange]]()
         attributedText.enumerateAttribute(ImageAttributeName, inRange: NSRange(location: 0, length: attributedText.length), options: []) { (value, range, stop) in
@@ -263,7 +263,7 @@ extension WWTextView /* Imaging */ {
     }
 }
 
-extension WWTextView /* Drawing */ {
+extension WWHTMLTextView /* Drawing */ {
     func placeholderFrame(frame:CGRect) -> CGRect {
         var bounds       = frame
         bounds.origin.x += textContainer.lineFragmentPadding
@@ -288,7 +288,7 @@ extension WWTextView /* Drawing */ {
     }
 }
 
-extension WWTextView : UIGestureRecognizerDelegate {
+extension WWHTMLTextView : UIGestureRecognizerDelegate {
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }

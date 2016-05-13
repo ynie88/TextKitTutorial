@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     private let textViewDelegate:Handler = Handler()
     
-    private lazy var textView:WWTextView = {_textView in
+    private lazy var textView:WWHTMLTextView = {_textView in
         _textView.delegate                      = self.textViewDelegate
         _textView.textContainer.lineBreakMode   = .ByWordWrapping
 //        _textView.delaysContentTouches          = false
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         self.view.addSubview(_textView)
         return _textView
-    }(WWTextView())
+    }(WWHTMLTextView())
     
     private lazy var htmlParser:HTMLParser = {
         let htmlParser = HTMLParser(textView: self.textView)

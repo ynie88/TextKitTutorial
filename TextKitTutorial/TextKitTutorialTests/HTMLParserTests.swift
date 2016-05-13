@@ -13,7 +13,7 @@ import Nimble
 
 class HTMLParserTest: QuickSpec {
     override func spec() {
-        let textView = WWTextView()
+        let textView = WWHTMLTextView()
         
         describe("Textview is not nil") {
             it("shouldn't be nil") {

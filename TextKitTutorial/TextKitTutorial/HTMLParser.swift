@@ -11,9 +11,9 @@ import Fuzi
 import Kingfisher
 
 class HTMLParser {
-    let textView:WWTextView!
+    let textView:WWHTMLTextView!
     
-    init(textView:WWTextView) {
+    init(textView:WWHTMLTextView) {
         self.textView = textView
     }
     
