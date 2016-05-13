@@ -22,7 +22,7 @@ class HTMLParser {
         return buildAttributedStringWithXMLElements(elements)
     }
     
-    private func getElementsFromString(string:String) -> [WWXMLElement]{
+    func getElementsFromString(string:String) -> [WWXMLElement]{
         var elements = [WWXMLElement]()
         
         do {
@@ -40,7 +40,7 @@ class HTMLParser {
         return elements
     }
     
-    private func buildAttributedStringWithXMLElements(wwElements:[WWXMLElement])->(attrString: NSAttributedString, images:[ImageTypeStruct]) {
+    func buildAttributedStringWithXMLElements(wwElements:[WWXMLElement])->(attrString: NSAttributedString, images:[ImageTypeStruct]) {
         
         let attrStr = NSMutableAttributedString()
         var imageTags:[ImageTypeStruct] = [ImageTypeStruct]()
@@ -97,7 +97,7 @@ class HTMLParser {
     }
     
     //remove image tags
-    private func getImageTags(string:String) -> (htmlWithNoImages:String, images:[ImageTypeStruct]){
+    func getImageTags(string:String) -> (htmlWithNoImages:String, images:[ImageTypeStruct]){
         var images:[ImageTypeStruct] = [ImageTypeStruct]()
         var newString = string
         do {
@@ -132,7 +132,7 @@ class HTMLParser {
         return nil
     }
     
-    private func removeImageTags(string:String)->String {
+    func removeImageTags(string:String)->String {
         let imageTag = HTMLParserConstants.HTMLConstants.openBracket + HTMLParserConstants.HTMLTypes.image
         let startIndex = string.indexOf(imageTag)
         
@@ -148,7 +148,6 @@ class HTMLParser {
         } else {
             return newString
         }
-        
     }
     
     func insertImages(images:[ImageTypeStruct]) {
@@ -187,7 +186,7 @@ struct HTMLParserConstants {
     
     struct HTMLConstants {
         static let openBracket  = "<"
-        static let closeBracket = "/>"
+        static let closeBracket = ">"
         static let separator    = ":/"
     }
 }
@@ -207,7 +206,7 @@ struct ImageTypeStruct {
     }
 }
 
-extension String {
+public extension String {
     func indexOf(string: String) -> Index {
         return rangeOfString(string, options: .LiteralSearch, range: nil, locale: nil)?.startIndex ?? startIndex
     }

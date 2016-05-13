@@ -42,8 +42,6 @@ struct HelperFunctions {
             return originalSize
         }
     }
-    
-    
 }
 
 extension NSData {
