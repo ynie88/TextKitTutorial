@@ -8,3 +8,17 @@
 
 import Foundation
 import WWRequestKit
+
+struct ForumsTopicModelView {
+    let forumTopicsUsers:ForumsTopicsUsers!
+    var topics:[ForumTopic] = [ForumTopic]()
+    
+    init(topicsUsers:ForumsTopicsUsers){
+        forumTopicsUsers = topicsUsers
+    }
+    
+    func mergeUsersWithTopics() {
+        
+    }
+    
+}

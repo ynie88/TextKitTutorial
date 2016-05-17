@@ -16,6 +16,7 @@
 		4C87C2331CEBA5110021C157 /* WWForumsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C2321CEBA5110021C157 /* WWForumsTests.swift */; };
 		4C87C2401CEBA8710021C157 /* ForumsTopicsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C23F1CEBA8710021C157 /* ForumsTopicsPresenter.swift */; };
 		4C87C2421CEBA8810021C157 /* ForumsTopicModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C2411CEBA8810021C157 /* ForumsTopicModelView.swift */; };
+		4C87C2441CEBB5A60021C157 /* ForumTopicsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C2431CEBB5A60021C157 /* ForumTopicsInteractor.swift */; };
 		6784A5B7DCF63555400CB03E /* Pods_WWForums.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B488F6F90A7EA9684D4266CA /* Pods_WWForums.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		4C87C2341CEBA5110021C157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C87C23F1CEBA8710021C157 /* ForumsTopicsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsTopicsPresenter.swift; sourceTree = "<group>"; };
 		4C87C2411CEBA8810021C157 /* ForumsTopicModelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsTopicModelView.swift; sourceTree = "<group>"; };
+		4C87C2431CEBB5A60021C157 /* ForumTopicsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumTopicsInteractor.swift; sourceTree = "<group>"; };
 		5039DDA7F8E9AB86170BD0BF /* Pods-WWForumsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForumsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests.release.xcconfig"; sourceTree = "<group>"; };
 		65897CBD64BC7A5CF48362B9 /* Pods-WWForums.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForums.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWForums/Pods-WWForums.release.xcconfig"; sourceTree = "<group>"; };
 		75C5F1234069F87B25E32CBE /* Pods-WWForumsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForumsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				4C87C23F1CEBA8710021C157 /* ForumsTopicsPresenter.swift */,
 				4C87C2411CEBA8810021C157 /* ForumsTopicModelView.swift */,
+				4C87C2431CEBB5A60021C157 /* ForumTopicsInteractor.swift */,
 			);
 			name = MainPage;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				4C87C2421CEBA8810021C157 /* ForumsTopicModelView.swift in Sources */,
 				4C87C2401CEBA8710021C157 /* ForumsTopicsPresenter.swift in Sources */,
 				4C87C2201CEBA5100021C157 /* ViewController.swift in Sources */,
+				4C87C2441CEBB5A60021C157 /* ForumTopicsInteractor.swift in Sources */,
 				4C87C21E1CEBA5100021C157 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

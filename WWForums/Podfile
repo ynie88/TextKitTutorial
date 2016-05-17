@@ -6,7 +6,8 @@ use_frameworks!
 
 def private_pods
   pod 'WWAppearance', '~> 1.2.0'
-  pod 'WWRequestKit', :git => 'git@github.com:weddingwire/WWRequestKit.git', :branch => 'master'
+  #pod 'WWRequestKit', :git => 'git@github.com:weddingwire/WWRequestKit.git', :branch => 'master'
+  pod 'WWRequestKit', :git => 'git@github.com:ynie88/WWRequestKit.git', :branch => 'ForumsTopics'
 end
 
 def shared_pods
