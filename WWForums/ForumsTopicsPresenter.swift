@@ -9,3 +9,13 @@
 import Foundation
 import WWRequestKit
 
+protocol ForumsTopicsPresenterInput: class {
+    
+}
+
+protocol ForumsTopicsPresenterOutput {}
+
+class ForumsTopicsPresenter: ForumsTopicsPresenterInput {
+    var output:ForumsTopicsPresenterOutput!
+    
+}

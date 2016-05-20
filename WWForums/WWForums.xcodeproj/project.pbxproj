@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3130045A2E52FDCB6435AD02 /* Pods_WWForumsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30B649B19C2784C2EC4454C /* Pods_WWForumsTests.framework */; };
+		4C00AF151CEF6258009FF208 /* ForumsTopicsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C00AF141CEF6258009FF208 /* ForumsTopicsConfigurator.swift */; };
+		4C00AF1D1CEF9571009FF208 /* ForumsTopicsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C00AF1C1CEF9571009FF208 /* ForumsTopicsRouter.swift */; };
+		4C00AF1F1CEF9584009FF208 /* ForumsTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C00AF1E1CEF9584009FF208 /* ForumsTopicsViewController.swift */; };
 		4C87C21E1CEBA5100021C157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C21D1CEBA5100021C157 /* AppDelegate.swift */; };
 		4C87C2201CEBA5100021C157 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C21F1CEBA5100021C157 /* ViewController.swift */; };
 		4C87C2231CEBA5100021C157 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C87C2211CEBA5100021C157 /* Main.storyboard */; };
@@ -17,7 +19,8 @@
 		4C87C2401CEBA8710021C157 /* ForumsTopicsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C23F1CEBA8710021C157 /* ForumsTopicsPresenter.swift */; };
 		4C87C2421CEBA8810021C157 /* ForumsTopicModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C2411CEBA8810021C157 /* ForumsTopicModelView.swift */; };
 		4C87C2441CEBB5A60021C157 /* ForumTopicsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C2431CEBB5A60021C157 /* ForumTopicsInteractor.swift */; };
-		6784A5B7DCF63555400CB03E /* Pods_WWForums.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B488F6F90A7EA9684D4266CA /* Pods_WWForums.framework */; };
+		B118CB01BDA65549F87DA41F /* Pods_WWForumsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3CA626261429A8406A5BA6E /* Pods_WWForumsTests.framework */; };
+		F281443A3E0A22DEFBB80855 /* Pods_WWForums.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B669679B224CD37CCD46D9 /* Pods_WWForums.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A45569F3831C188172A9D40 /* Pods-WWForums.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForums.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWForums/Pods-WWForums.debug.xcconfig"; sourceTree = "<group>"; };
+		0A7BE36A960E060D70A4FFD8 /* Pods-WWForums.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForums.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWForums/Pods-WWForums.release.xcconfig"; sourceTree = "<group>"; };
+		4C00AF141CEF6258009FF208 /* ForumsTopicsConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsTopicsConfigurator.swift; sourceTree = "<group>"; };
+		4C00AF1C1CEF9571009FF208 /* ForumsTopicsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsTopicsRouter.swift; sourceTree = "<group>"; };
+		4C00AF1E1CEF9584009FF208 /* ForumsTopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsTopicsViewController.swift; sourceTree = "<group>"; };
 		4C87C21A1CEBA5100021C157 /* WWForums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWForums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C87C21D1CEBA5100021C157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C87C21F1CEBA5100021C157 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,11 +51,11 @@
 		4C87C23F1CEBA8710021C157 /* ForumsTopicsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsTopicsPresenter.swift; sourceTree = "<group>"; };
 		4C87C2411CEBA8810021C157 /* ForumsTopicModelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsTopicModelView.swift; sourceTree = "<group>"; };
 		4C87C2431CEBB5A60021C157 /* ForumTopicsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumTopicsInteractor.swift; sourceTree = "<group>"; };
-		5039DDA7F8E9AB86170BD0BF /* Pods-WWForumsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForumsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests.release.xcconfig"; sourceTree = "<group>"; };
-		65897CBD64BC7A5CF48362B9 /* Pods-WWForums.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForums.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWForums/Pods-WWForums.release.xcconfig"; sourceTree = "<group>"; };
-		75C5F1234069F87B25E32CBE /* Pods-WWForumsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForumsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B488F6F90A7EA9684D4266CA /* Pods_WWForums.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WWForums.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C30B649B19C2784C2EC4454C /* Pods_WWForumsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WWForumsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A0E413DD885AA5E9B3A4C99 /* Pods-WWForumsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForumsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests.release.xcconfig"; sourceTree = "<group>"; };
+		852C2BFF419700B2008E3238 /* Pods-WWForumsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForumsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		87B669679B224CD37CCD46D9 /* Pods_WWForums.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WWForums.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3CA626261429A8406A5BA6E /* Pods_WWForumsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WWForumsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F08EE1906255BD2982E6F62D /* Pods-WWForums.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForums.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWForums/Pods-WWForums.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6784A5B7DCF63555400CB03E /* Pods_WWForums.framework in Frameworks */,
+				F281443A3E0A22DEFBB80855 /* Pods_WWForums.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,21 +71,85 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3130045A2E52FDCB6435AD02 /* Pods_WWForumsTests.framework in Frameworks */,
+				B118CB01BDA65549F87DA41F /* Pods_WWForumsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3522732F0B82ED213791AD3A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87B669679B224CD37CCD46D9 /* Pods_WWForums.framework */,
+				A3CA626261429A8406A5BA6E /* Pods_WWForumsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C00AF131CEF623B009FF208 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				4C00AF141CEF6258009FF208 /* ForumsTopicsConfigurator.swift */,
+			);
+			name = Configurator;
+			sourceTree = "<group>";
+		};
+		4C00AF161CEF6473009FF208 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4C87C23F1CEBA8710021C157 /* ForumsTopicsPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		4C00AF171CEF6480009FF208 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				4C87C2431CEBB5A60021C157 /* ForumTopicsInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		4C00AF181CEF6486009FF208 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				4C00AF1C1CEF9571009FF208 /* ForumsTopicsRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		4C00AF191CEF6494009FF208 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4C00AF1A1CEF649B009FF208 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C87C2411CEBA8810021C157 /* ForumsTopicModelView.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4C00AF1B1CEF64A1009FF208 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4C00AF1E1CEF9584009FF208 /* ForumsTopicsViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
 		4C87C2111CEBA5100021C157 = {
 			isa = PBXGroup;
 			children = (
 				4C87C21C1CEBA5100021C157 /* WWForums */,
 				4C87C2311CEBA5110021C157 /* WWForumsTests */,
 				4C87C21B1CEBA5100021C157 /* Products */,
-				E8178002CFAF0BB0E5355717 /* Pods */,
-				EEFAF0C04539518C3D9A44E1 /* Frameworks */,
+				D00590F088E205D2FD37A60F /* Pods */,
+				3522732F0B82ED213791AD3A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,40 +188,35 @@
 		4C87C23D1CEBA8280021C157 /* Forums */ = {
 			isa = PBXGroup;
 			children = (
-				4C87C23E1CEBA83E0021C157 /* MainPage */,
+				4C87C23E1CEBA83E0021C157 /* Topics Page */,
 			);
 			name = Forums;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		4C87C23E1CEBA83E0021C157 /* MainPage */ = {
+		4C87C23E1CEBA83E0021C157 /* Topics Page */ = {
 			isa = PBXGroup;
 			children = (
-				4C87C23F1CEBA8710021C157 /* ForumsTopicsPresenter.swift */,
-				4C87C2411CEBA8810021C157 /* ForumsTopicModelView.swift */,
-				4C87C2431CEBB5A60021C157 /* ForumTopicsInteractor.swift */,
+				4C00AF1B1CEF64A1009FF208 /* View Controller */,
+				4C00AF1A1CEF649B009FF208 /* Models */,
+				4C00AF191CEF6494009FF208 /* Views */,
+				4C00AF181CEF6486009FF208 /* Router */,
+				4C00AF171CEF6480009FF208 /* Interactor */,
+				4C00AF161CEF6473009FF208 /* Presenter */,
+				4C00AF131CEF623B009FF208 /* Configurator */,
 			);
-			name = MainPage;
+			name = "Topics Page";
 			sourceTree = "<group>";
 		};
-		E8178002CFAF0BB0E5355717 /* Pods */ = {
+		D00590F088E205D2FD37A60F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3A45569F3831C188172A9D40 /* Pods-WWForums.debug.xcconfig */,
-				65897CBD64BC7A5CF48362B9 /* Pods-WWForums.release.xcconfig */,
-				75C5F1234069F87B25E32CBE /* Pods-WWForumsTests.debug.xcconfig */,
-				5039DDA7F8E9AB86170BD0BF /* Pods-WWForumsTests.release.xcconfig */,
+				F08EE1906255BD2982E6F62D /* Pods-WWForums.debug.xcconfig */,
+				0A7BE36A960E060D70A4FFD8 /* Pods-WWForums.release.xcconfig */,
+				852C2BFF419700B2008E3238 /* Pods-WWForumsTests.debug.xcconfig */,
+				5A0E413DD885AA5E9B3A4C99 /* Pods-WWForumsTests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		EEFAF0C04539518C3D9A44E1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B488F6F90A7EA9684D4266CA /* Pods_WWForums.framework */,
-				C30B649B19C2784C2EC4454C /* Pods_WWForumsTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,12 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C87C2371CEBA5110021C157 /* Build configuration list for PBXNativeTarget "WWForums" */;
 			buildPhases = (
-				5C2B83B5D35AD8983FA2555E /* Check Pods Manifest.lock */,
+				D11FE707FDC90B7572FCFEB1 /* Check Pods Manifest.lock */,
 				4C87C2161CEBA5100021C157 /* Sources */,
 				4C87C2171CEBA5100021C157 /* Frameworks */,
 				4C87C2181CEBA5100021C157 /* Resources */,
-				882035C84AF7BE6F863F947E /* Embed Pods Frameworks */,
-				C4F74820689984F3DD10DCDA /* Copy Pods Resources */,
+				3B4FDE850526A47FF4DC97EF /* Embed Pods Frameworks */,
+				5353A3709C4673467C8A39F1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,12 +246,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C87C23A1CEBA5110021C157 /* Build configuration list for PBXNativeTarget "WWForumsTests" */;
 			buildPhases = (
-				4565E56CBB3C67EE1BF83030 /* Check Pods Manifest.lock */,
+				1E79E60A384B7D8F9704F37C /* Check Pods Manifest.lock */,
 				4C87C22A1CEBA5110021C157 /* Sources */,
 				4C87C22B1CEBA5110021C157 /* Frameworks */,
 				4C87C22C1CEBA5110021C157 /* Resources */,
-				5158BD8F0222E7C69181D156 /* Embed Pods Frameworks */,
-				64F62D1BF7814DD7402065D4 /* Copy Pods Resources */,
+				D749C78D36E43FC0572991CB /* Embed Pods Frameworks */,
+				77BAA23397CB1C77D2EDBABD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,7 +322,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4565E56CBB3C67EE1BF83030 /* Check Pods Manifest.lock */ = {
+		1E79E60A384B7D8F9704F37C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,52 +337,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5158BD8F0222E7C69181D156 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5C2B83B5D35AD8983FA2555E /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		64F62D1BF7814DD7402065D4 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		882035C84AF7BE6F863F947E /* Embed Pods Frameworks */ = {
+		3B4FDE850526A47FF4DC97EF /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -332,7 +352,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWForums/Pods-WWForums-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C4F74820689984F3DD10DCDA /* Copy Pods Resources */ = {
+		5353A3709C4673467C8A39F1 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,6 +367,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWForums/Pods-WWForums-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		77BAA23397CB1C77D2EDBABD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D11FE707FDC90B7572FCFEB1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D749C78D36E43FC0572991CB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -354,10 +419,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C00AF1F1CEF9584009FF208 /* ForumsTopicsViewController.swift in Sources */,
 				4C87C2421CEBA8810021C157 /* ForumsTopicModelView.swift in Sources */,
 				4C87C2401CEBA8710021C157 /* ForumsTopicsPresenter.swift in Sources */,
 				4C87C2201CEBA5100021C157 /* ViewController.swift in Sources */,
+				4C00AF1D1CEF9571009FF208 /* ForumsTopicsRouter.swift in Sources */,
 				4C87C2441CEBB5A60021C157 /* ForumTopicsInteractor.swift in Sources */,
+				4C00AF151CEF6258009FF208 /* ForumsTopicsConfigurator.swift in Sources */,
 				4C87C21E1CEBA5100021C157 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,7 +553,7 @@
 		};
 		4C87C2381CEBA5110021C157 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A45569F3831C188172A9D40 /* Pods-WWForums.debug.xcconfig */;
+			baseConfigurationReference = F08EE1906255BD2982E6F62D /* Pods-WWForums.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WWForums/Info.plist;
@@ -497,7 +565,7 @@
 		};
 		4C87C2391CEBA5110021C157 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65897CBD64BC7A5CF48362B9 /* Pods-WWForums.release.xcconfig */;
+			baseConfigurationReference = 0A7BE36A960E060D70A4FFD8 /* Pods-WWForums.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WWForums/Info.plist;
@@ -509,7 +577,7 @@
 		};
 		4C87C23B1CEBA5110021C157 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75C5F1234069F87B25E32CBE /* Pods-WWForumsTests.debug.xcconfig */;
+			baseConfigurationReference = 852C2BFF419700B2008E3238 /* Pods-WWForumsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = WWForumsTests/Info.plist;
@@ -522,7 +590,7 @@
 		};
 		4C87C23C1CEBA5110021C157 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5039DDA7F8E9AB86170BD0BF /* Pods-WWForumsTests.release.xcconfig */;
+			baseConfigurationReference = 5A0E413DD885AA5E9B3A4C99 /* Pods-WWForumsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = WWForumsTests/Info.plist;

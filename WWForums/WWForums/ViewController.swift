@@ -9,10 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var interactor: ForumsTopicsInteractor!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.interactor = ForumsTopicsInteractor()
     }
 
     override func didReceiveMemoryWarning() {
