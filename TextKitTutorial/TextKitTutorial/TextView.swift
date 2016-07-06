@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WWTextView : UITextView {
+class WWHTMLTextView : UITextView {
     var onClick:((string:String, type:DetectedType, range:NSRange) -> Void)?
     var detected:((string:String, type:DetectedType, range:NSRange) -> Void)?
     var tapGestureRecognizer:UITapGestureRecognizer?
@@ -18,7 +18,7 @@ class WWTextView : UITextView {
     var placeholderLabel    = UILabel(frame: .zero)
     let tapInset            = UIEdgeInsets(top: -2, left: -2, bottom: -2, right: -2)
     
-    private var prettyStorage       = TextStorage()
+    private var prettyStorage       = NSTextStorage()
     private var prettyLayoutManager = NSLayoutManager()
     private var prettyContainer     = NSTextContainer()
 
@@ -54,22 +54,6 @@ class WWTextView : UITextView {
             placeholderLabel.frame = placeholderFrame(placeholderLabel.bounds)
         }
     }
-    
-//    override var editable: Bool {
-//        didSet {
-//            if editable {
-//                if let tapGestureRecognizer = tapGestureRecognizer {
-//                    removeGestureRecognizer(tapGestureRecognizer)
-//                }
-//            }
-//            else {
-//                tapGestureRecognizer            = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
-//                tapGestureRecognizer?.delegate  = self
-//                
-//                addGestureRecognizer(tapGestureRecognizer!)
-//            }
-//        }
-//    }
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -127,13 +111,13 @@ class WWTextView : UITextView {
     }
 }
 
-extension WWTextView /* Actions */ {
+extension WWHTMLTextView /* Actions */ {
     func clickedDetected(string:String, type:DetectedType, range:NSRange) {
         onClick?(string:string, type:type, range:range)
     }
 }
 
-extension WWTextView /* Detection */ {
+extension WWHTMLTextView /* Detection */ {
     func urlsAt(location:CGPoint, complete:(NSRange) -> ()) {
         var found = false
         
@@ -191,7 +175,7 @@ extension WWTextView /* Detection */ {
     }
 }
 
-extension WWTextView /* Imaging */ {
+extension WWHTMLTextView /* Imaging */ {
     func imageRanges() -> [[String : NSRange]] {
         var ranges = [[String : NSRange]]()
         attributedText.enumerateAttribute(ImageAttributeName, inRange: NSRange(location: 0, length: attributedText.length), options: []) { (value, range, stop) in
@@ -248,7 +232,7 @@ extension WWTextView /* Imaging */ {
         }
     }
     
-    func insertImage(name:String, image:UIImage, size:CGSize, at index:Int) {
+    func insertImage(name:String, image:UIImage, size:CGSize, at index:Int) -> NSRange{
         let attachment      = NSTextAttachment(data: nil, ofType: nil)
         attachment.image    = image
         attachment.bounds   = CGRectMake(0, 0, size.width, size.height)
@@ -263,14 +247,23 @@ extension WWTextView /* Imaging */ {
             
             if let attrString = self.attributedText.mutableCopy() as? NSMutableAttributedString {
                 attrString.insertAttributedString(attachmentAttributedString, atIndex: index)
-                
+                let range = NSMakeRange(index, attachmentAttributedString.length)
                 self.attributedText = attrString
+                return range
             }
+        }
+        return NSMakeRange(0, 0)
+    }
+    
+    func removeImage(range:NSRange){
+        if let attrString = self.attributedText.mutableCopy() as? NSMutableAttributedString {
+            attrString.replaceCharactersInRange(range, withString: "")
+            self.attributedText = attrString
         }
     }
 }
 
-extension WWTextView /* Drawing */ {
+extension WWHTMLTextView /* Drawing */ {
     func placeholderFrame(frame:CGRect) -> CGRect {
         var bounds       = frame
         bounds.origin.x += textContainer.lineFragmentPadding
@@ -295,7 +288,7 @@ extension WWTextView /* Drawing */ {
     }
 }
 
-extension WWTextView : UIGestureRecognizerDelegate {
+extension WWHTMLTextView : UIGestureRecognizerDelegate {
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }

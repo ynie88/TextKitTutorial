@@ -22,9 +22,18 @@
 		4C0054C21CC681F400F2AB59 /* DiscourseOne.html in Resources */ = {isa = PBXBuildFile; fileRef = 4C0054C11CC681F400F2AB59 /* DiscourseOne.html */; };
 		4C0054C41CC6828300F2AB59 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0054C31CC6828300F2AB59 /* HelperFunctions.swift */; };
 		4C0054C61CC6D6CF00F2AB59 /* EnlargedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0054C51CC6D6CF00F2AB59 /* EnlargedImage.swift */; };
+		4C34EED51CD01ABD003174F6 /* SampleHTMLParsingPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C34EED41CD01ABD003174F6 /* SampleHTMLParsingPost.json */; };
+		4C34EED71CD25EEA003174F6 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34EED61CD25EEA003174F6 /* HTMLParser.swift */; };
+		4C34EED91CD26C2D003174F6 /* WWXMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34EED81CD26C2D003174F6 /* WWXMLElement.swift */; };
+		4C505AE91CE51FAC00011753 /* HTMLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C505AE81CE51FAC00011753 /* HTMLParserTests.swift */; };
+		4C505AEE1CE5281100011753 /* Sample22.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C505AED1CE5281100011753 /* Sample22.json */; };
+		4C505AF01CE5283100011753 /* Sample21.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C505AEF1CE5283100011753 /* Sample21.json */; };
+		4C505AF21CE5294B00011753 /* Sample154.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C505AF11CE5294B00011753 /* Sample154.json */; };
+		4C505AF41CE5295B00011753 /* SampleJSONTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C505AF31CE5295B00011753 /* SampleJSONTest.json */; };
 		4CA6667F1CC9101200ECC1AE /* DiscourseTwo.html in Resources */ = {isa = PBXBuildFile; fileRef = 4CA6667E1CC9101200ECC1AE /* DiscourseTwo.html */; };
 		4CA666811CC9578600ECC1AE /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA666801CC9578600ECC1AE /* ImageLoader.swift */; };
 		67024DC0783D7565D8548C39 /* Pods_TextKitTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48AFD5C1D70186FCD705AD9 /* Pods_TextKitTutorial.framework */; };
+		F8420046ABF6B30799A9FA3F /* Pods_TextKitTutorialTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22C14C42DB00E838B42D49F /* Pods_TextKitTutorialTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,9 +77,20 @@
 		4C0054C31CC6828300F2AB59 /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		4C0054C51CC6D6CF00F2AB59 /* EnlargedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnlargedImage.swift; sourceTree = "<group>"; };
 		4C0054C71CC819D100F2AB59 /* TextKitTutorialBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextKitTutorialBridgingHeader.h; sourceTree = "<group>"; };
+		4C34EED41CD01ABD003174F6 /* SampleHTMLParsingPost.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleHTMLParsingPost.json; sourceTree = "<group>"; };
+		4C34EED61CD25EEA003174F6 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+		4C34EED81CD26C2D003174F6 /* WWXMLElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWXMLElement.swift; sourceTree = "<group>"; };
+		4C505AE81CE51FAC00011753 /* HTMLParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParserTests.swift; sourceTree = "<group>"; };
+		4C505AED1CE5281100011753 /* Sample22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sample22.json; sourceTree = "<group>"; };
+		4C505AEF1CE5283100011753 /* Sample21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sample21.json; sourceTree = "<group>"; };
+		4C505AF11CE5294B00011753 /* Sample154.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sample154.json; sourceTree = "<group>"; };
+		4C505AF31CE5295B00011753 /* SampleJSONTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleJSONTest.json; sourceTree = "<group>"; };
 		4CA6667E1CC9101200ECC1AE /* DiscourseTwo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DiscourseTwo.html; sourceTree = "<group>"; };
 		4CA666801CC9578600ECC1AE /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		56F64FB5A83CBAC56E5ECF4C /* Pods-TextKitTutorialTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextKitTutorialTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TextKitTutorialTests/Pods-TextKitTutorialTests.release.xcconfig"; sourceTree = "<group>"; };
 		B8AD3849D01CD3E97F620C67 /* Pods-TextKitTutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextKitTutorial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TextKitTutorial/Pods-TextKitTutorial.debug.xcconfig"; sourceTree = "<group>"; };
+		D22C14C42DB00E838B42D49F /* Pods_TextKitTutorialTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextKitTutorialTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2B6F0E491D3F5C39295E5D /* Pods-TextKitTutorialTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextKitTutorialTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TextKitTutorialTests/Pods-TextKitTutorialTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F48AFD5C1D70186FCD705AD9 /* Pods_TextKitTutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextKitTutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8420046ABF6B30799A9FA3F /* Pods_TextKitTutorialTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +126,8 @@
 			children = (
 				B8AD3849D01CD3E97F620C67 /* Pods-TextKitTutorial.debug.xcconfig */,
 				3747452398459F983AA5B528 /* Pods-TextKitTutorial.release.xcconfig */,
+				DA2B6F0E491D3F5C39295E5D /* Pods-TextKitTutorialTests.debug.xcconfig */,
+				56F64FB5A83CBAC56E5ECF4C /* Pods-TextKitTutorialTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -113,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				F48AFD5C1D70186FCD705AD9 /* Pods_TextKitTutorial.framework */,
+				D22C14C42DB00E838B42D49F /* Pods_TextKitTutorialTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,6 +178,8 @@
 				4C0054C51CC6D6CF00F2AB59 /* EnlargedImage.swift */,
 				4C0054C71CC819D100F2AB59 /* TextKitTutorialBridgingHeader.h */,
 				4CA666801CC9578600ECC1AE /* ImageLoader.swift */,
+				4C34EED61CD25EEA003174F6 /* HTMLParser.swift */,
+				4C34EED81CD26C2D003174F6 /* WWXMLElement.swift */,
 			);
 			path = TextKitTutorial;
 			sourceTree = "<group>";
@@ -161,8 +187,10 @@
 		4C0054981CC175C500F2AB59 /* TextKitTutorialTests */ = {
 			isa = PBXGroup;
 			children = (
+				4C505AEA1CE5272100011753 /* SampleHTML */,
 				4C0054991CC175C500F2AB59 /* TextKitTutorialTests.swift */,
 				4C00549B1CC175C500F2AB59 /* Info.plist */,
+				4C505AE81CE51FAC00011753 /* HTMLParserTests.swift */,
 			);
 			path = TextKitTutorialTests;
 			sourceTree = "<group>";
@@ -201,6 +229,18 @@
 			children = (
 				4C0054C11CC681F400F2AB59 /* DiscourseOne.html */,
 				4CA6667E1CC9101200ECC1AE /* DiscourseTwo.html */,
+				4C34EED41CD01ABD003174F6 /* SampleHTMLParsingPost.json */,
+			);
+			name = SampleHTML;
+			sourceTree = "<group>";
+		};
+		4C505AEA1CE5272100011753 /* SampleHTML */ = {
+			isa = PBXGroup;
+			children = (
+				4C505AED1CE5281100011753 /* Sample22.json */,
+				4C505AEF1CE5283100011753 /* Sample21.json */,
+				4C505AF11CE5294B00011753 /* Sample154.json */,
+				4C505AF31CE5295B00011753 /* SampleJSONTest.json */,
 			);
 			name = SampleHTML;
 			sourceTree = "<group>";
@@ -232,9 +272,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C0054AC1CC175C500F2AB59 /* Build configuration list for PBXNativeTarget "TextKitTutorialTests" */;
 			buildPhases = (
+				6FE21B79DEAEBA1B05BAFD24 /* Check Pods Manifest.lock */,
 				4C0054911CC175C500F2AB59 /* Sources */,
 				4C0054921CC175C500F2AB59 /* Frameworks */,
 				4C0054931CC175C500F2AB59 /* Resources */,
+				C64C872DF5C72E5E1CF84FD9 /* Embed Pods Frameworks */,
+				C504EAEFFEA2AA72C8596CCA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -313,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C00548F1CC175C500F2AB59 /* LaunchScreen.storyboard in Resources */,
+				4C34EED51CD01ABD003174F6 /* SampleHTMLParsingPost.json in Resources */,
 				4C0054C21CC681F400F2AB59 /* DiscourseOne.html in Resources */,
 				4C00548C1CC175C500F2AB59 /* Assets.xcassets in Resources */,
 				4CA6667F1CC9101200ECC1AE /* DiscourseTwo.html in Resources */,
@@ -323,6 +367,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C505AF01CE5283100011753 /* Sample21.json in Resources */,
+				4C505AEE1CE5281100011753 /* Sample22.json in Resources */,
+				4C505AF21CE5294B00011753 /* Sample154.json in Resources */,
+				4C505AF41CE5295B00011753 /* SampleJSONTest.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +414,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TextKitTutorial/Pods-TextKitTutorial-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6FE21B79DEAEBA1B05BAFD24 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		8F8D3199869C879B4174DC06 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -381,6 +444,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TextKitTutorial/Pods-TextKitTutorial-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C504EAEFFEA2AA72C8596CCA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TextKitTutorialTests/Pods-TextKitTutorialTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C64C872DF5C72E5E1CF84FD9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TextKitTutorialTests/Pods-TextKitTutorialTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -394,9 +487,11 @@
 				4C0054B81CC533E500F2AB59 /* Handler.swift in Sources */,
 				4C0054BF1CC5354A00F2AB59 /* BaseCell.swift in Sources */,
 				4CA666811CC9578600ECC1AE /* ImageLoader.swift in Sources */,
+				4C34EED91CD26C2D003174F6 /* WWXMLElement.swift in Sources */,
 				4C0054BA1CC533E500F2AB59 /* TextView.swift in Sources */,
 				4C0054B91CC533E500F2AB59 /* TextStorage.swift in Sources */,
 				4C0054C61CC6D6CF00F2AB59 /* EnlargedImage.swift in Sources */,
+				4C34EED71CD25EEA003174F6 /* HTMLParser.swift in Sources */,
 				4C0054851CC175C500F2AB59 /* AppDelegate.swift in Sources */,
 				4C0054C41CC6828300F2AB59 /* HelperFunctions.swift in Sources */,
 			);
@@ -407,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C00549A1CC175C500F2AB59 /* TextKitTutorialTests.swift in Sources */,
+				4C505AE91CE51FAC00011753 /* HTMLParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +652,7 @@
 		};
 		4C0054AD1CC175C500F2AB59 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA2B6F0E491D3F5C39295E5D /* Pods-TextKitTutorialTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TextKitTutorialTests/Info.plist;
@@ -568,6 +665,7 @@
 		};
 		4C0054AE1CC175C500F2AB59 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56F64FB5A83CBAC56E5ECF4C /* Pods-TextKitTutorialTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TextKitTutorialTests/Info.plist;

@@ -20,7 +20,6 @@ class TextStorage : NSTextStorage {
     
     private let linkPattern     = "[a-zA-Z]+://[0-9a-zA-Z_.?&/=]+"
     private let emailPattern    = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]+"
-    
     override var string: String {
         return backing.string
     }

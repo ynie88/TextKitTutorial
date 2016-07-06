@@ -9,42 +9,29 @@
 import Foundation
 import UIKit
 import Fuzi
-import StringStylizer
 
 struct HelperFunctions {
     static func getHTMLFromFile(fileName:String) -> String{
         let url = NSBundle.mainBundle().URLForResource(fileName, withExtension:"html")
-        guard let fileContent = try? NSString(contentsOfURL: url!, encoding: NSUTF8StringEncoding) else {return ""}
+        guard let fileContent = try? NSString(contentsOfURL: url!, encoding: NSNonLossyASCIIStringEncoding) else {return ""}
         return fileContent as String
     }
     
     static func showHTMLString(unformattedString: String) -> NSAttributedString{
-//        var attrStr = NSAttributedString(data: unformattedString.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
         
         return try! NSAttributedString(data: unformattedString.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
     }
     
-    static func getElementsFromString(string:String) -> [XMLElement]{
-        var elements = [XMLElement]()
-        let newStr = string.stringByReplacingOccurrencesOfString("<br>", withString: "<br></br>").stringByReplacingOccurrencesOfString("<p>", withString: "<br></br> ").stringByReplacingOccurrencesOfString("</p>", withString: " ")
-        do {
-            let document = try HTMLDocument(string: newStr)
-            
-            if let root = document.root![0] {
-                for element in root.children {
-//                    for subElement in element.children {
-//                        print("sub element: tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
-//                        elements.append(subElement)
-//                    }
-                    print("tag: \(element.tag): attributes: \(element.attributes), string value: \(element.stringValue)")
-                    elements.append(element)
-                }
-            }
-            
-        } catch {
-            
-        }
-        return elements
+    static func getJSONValueFromFile(fileName:String, key:String) -> String? {
+        guard let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "json") else {return nil}
+        guard let jsonData = try? NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe) else {return nil}
+        guard let jsonResult = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) else {return nil}
+        guard let stream = jsonResult["post_stream"] as? NSDictionary else {return nil}
+        guard let posts = stream["posts"] as! NSArray? else {return nil}
+        let firstPost = posts[0] as! NSDictionary
+        
+        guard let str = firstPost[key] as? String else {return nil}
+        return str
     }
     
     static func convertSizeForImage(originalSize:CGSize, containerSize:CGSize) -> CGSize {
@@ -55,8 +42,6 @@ struct HelperFunctions {
             return originalSize
         }
     }
-    
-    
 }
 
 extension NSData {

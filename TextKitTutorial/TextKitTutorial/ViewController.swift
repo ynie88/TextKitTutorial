@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import Appendix
 import Fuzi
-import StringStylizer
 
 class ViewController: UIViewController, UITextViewDelegate {
     private lazy var label:UILabel = {label in
@@ -24,7 +23,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     private let textViewDelegate:Handler = Handler()
     
-    private lazy var textView:WWTextView = {_textView in
+    private lazy var textView:WWHTMLTextView = {_textView in
         _textView.delegate                      = self.textViewDelegate
         _textView.textContainer.lineBreakMode   = .ByWordWrapping
 //        _textView.delaysContentTouches          = false
@@ -32,27 +31,24 @@ class ViewController: UIViewController, UITextViewDelegate {
         _textView.editable                      = false
 //        _textView.selectable                    = true
         _textView.userInteractionEnabled        = true
-        _textView.onClick = { (string, type, range) in
-            print("CLICKED: \(type.description) :: \(string) :: \(range)")
-        }
-        
-        _textView.detected = { (string, type, range) in
-            print("DETECTED: \(type.description) :: \(string) :: \(range)")
-        }
         
         self.view.addSubview(_textView)
         return _textView
-    }(WWTextView())
+    }(WWHTMLTextView())
+    
+    private lazy var htmlParser:HTMLParser = {
+        let htmlParser = HTMLParser(textView: self.textView)
+        return htmlParser
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         view.backgroundColor = UIColor.whiteColor()
         view.setNeedsUpdateConstraints()
         view.updateConstraintsIfNeeded()
-        //textView.insertImage("grayCat", image: UIImage(named: "grayCat")!, size: CGSizeMake(192, 120), at: 30)
+        loadHTMLFromFile()
         
-        loadHTML()
+        //loadHTML()
     }
 
     override func updateViewConstraints() {
@@ -74,78 +70,13 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func loadHTML() {
-        let str = HelperFunctions.getHTMLFromFile("DiscourseTwo")
-        elements = HelperFunctions.getElementsFromString(str)
-        let attrStr = buildAttributedStringWithXMLElements(elements)
-        textView.attributedText = attrStr
-    }
-    
-    func buildAttributedStringWithXMLElements(elements:[XMLElement])->NSAttributedString {
-        let attrStr = NSMutableAttributedString()
-        for element in elements {
-            if let tag = element.tag {
-                if tag == "img" {
-                    let attributes = element.attributes
-                    let src = attributes["src"]!
-                    let width = CGFloat((attributes["width"]! as NSString).floatValue)*0.9
-                    let height = CGFloat((attributes["height"]! as NSString).floatValue)*0.9
-                    
-                    let length = attrStr.length
-                    
-                    ImageLoader.sharedLoader.imageForUrl(src, completionHandler: { (image, url) in
-                        if let image = image {
-                            let size = CGSizeMake(width, height)
-                            let imageSize = HelperFunctions.convertSizeForImage(size, containerSize: self.textView.size)
-                            //self.textView.insertImage(tag, image: image, size: imageSize)
-                            self.textView.insertImage(tag, image: image, size: imageSize, at: length)
-                        }
-                    })
-                } else if tag == "a" {
-                    if var href = element.attributes["href"] {
-                        if let linkClass = element.attributes["class"]{
-                            href = linkClass + ":/" + href
-                        }
-                        let attributedString = NSMutableAttributedString(string: element.stringValue)
-                        attributedString.addAttribute(NSLinkAttributeName, value: href, range: NSMakeRange(0, element.stringValue.length))
-                        attrStr.appendAttributedString(attributedString)
-                    }
-
-                } else {
-                    let stringValue = element.stringValue
-                    
-                    let attributedString:NSAttributedString
-                    if tag == "strong" {
-                        attributedString = stringValue.stylize().size(16).font(StringStylizerFontName.HelveticaNeue_Bold).attr
-                    } else if tag == "em" {
-                        attributedString = stringValue.stylize().size(14).font(StringStylizerFontName.HelveticaNeue_Italic).attr
-                    } else if tag == "ul" {
-                        let paragraphStyle = NSMutableParagraphStyle()
-                        paragraphStyle.paragraphSpacing = 4
-                        paragraphStyle.paragraphSpacingBefore = 3
-                        paragraphStyle.firstLineHeadIndent = 0.0
-                        paragraphStyle.headIndent = 10.5
-                        
-                        let mutableStr = NSMutableAttributedString(string: stringValue + "\n")
-                        mutableStr.addAttributes([NSParagraphStyleAttributeName:paragraphStyle], range: NSMakeRange(0, stringValue.length))
-                        attributedString = mutableStr as NSAttributedString
-//                        attributedString = stringValue.stylize().size(14).paragraph(paragraphStyle).attr
-                        
-                    } else if tag == "h2" {
-                        attributedString = stringValue.stylize().size(18).font(StringStylizerFontName.HelveticaNeue_Bold).attr
-                    } else if tag == "br" {
-                        attributedString = NSAttributedString(string: "\n")
-                    } else {
-                        attributedString = NSAttributedString(string: stringValue)
-                    }
-                    attrStr.appendAttributedString(attributedString)
-                }
-            }
+    func loadHTMLFromFile() {
+        if let htmlString = HelperFunctions.getJSONValueFromFile("SampleHTMLParsingPost", key: "cooked") {
+            //print("htmlStirng = \(htmlString)")
+            let attrStr = htmlParser.getAttributedStringAndImagesFromHTML(htmlString)
+            textView.attributedText = attrStr.attrString
+            htmlParser.insertImages(attrStr.images)
         }
-        
-        return attrStr
     }
-    
-    
 }
 
