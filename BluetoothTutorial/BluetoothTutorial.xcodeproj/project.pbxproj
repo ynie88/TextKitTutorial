@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		2855BCCA9B85511A224569B4 /* Pods_BluetoothTutorialTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA426EFBEEB1CBAC0A4D8AD /* Pods_BluetoothTutorialTests.framework */; };
 		4C6F5DFA1D8C677D00B64A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F5DF91D8C677D00B64A6C /* AppDelegate.swift */; };
-		4C6F5DFC1D8C677D00B64A6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F5DFB1D8C677D00B64A6C /* ViewController.swift */; };
-		4C6F5DFF1D8C677D00B64A6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6F5DFD1D8C677D00B64A6C /* Main.storyboard */; };
 		4C6F5E011D8C677D00B64A6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C6F5E001D8C677D00B64A6C /* Assets.xcassets */; };
 		4C6F5E041D8C677D00B64A6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6F5E021D8C677D00B64A6C /* LaunchScreen.storyboard */; };
 		4C6F5E0F1D8C677D00B64A6C /* BluetoothTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F5E0E1D8C677D00B64A6C /* BluetoothTutorialTests.swift */; };
 		4C6F5E1A1D8C677D00B64A6C /* BluetoothTutorialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F5E191D8C677D00B64A6C /* BluetoothTutorialUITests.swift */; };
+		4C6F5E2A1D8C6C1A00B64A6C /* BluetoothDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F5E291D8C6C1A00B64A6C /* BluetoothDevice.swift */; };
+		4C7BC03E1D8C7823006621AE /* HeartRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7BC03D1D8C7823006621AE /* HeartRateViewController.swift */; };
 		CD691A3A9370FDB85A921D3C /* Pods_BluetoothTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B4D93B795890C1C440C50C /* Pods_BluetoothTutorial.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +41,6 @@
 		4C1E62FAB763945F3F60062F /* Pods-BluetoothTutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoothTutorial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoothTutorial/Pods-BluetoothTutorial.debug.xcconfig"; sourceTree = "<group>"; };
 		4C6F5DF61D8C677D00B64A6C /* BluetoothTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6F5DF91D8C677D00B64A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C6F5DFB1D8C677D00B64A6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4C6F5DFE1D8C677D00B64A6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C6F5E001D8C677D00B64A6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C6F5E031D8C677D00B64A6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C6F5E051D8C677D00B64A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +50,8 @@
 		4C6F5E151D8C677D00B64A6C /* BluetoothTutorialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluetoothTutorialUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6F5E191D8C677D00B64A6C /* BluetoothTutorialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothTutorialUITests.swift; sourceTree = "<group>"; };
 		4C6F5E1B1D8C677D00B64A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C6F5E291D8C6C1A00B64A6C /* BluetoothDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothDevice.swift; sourceTree = "<group>"; };
+		4C7BC03D1D8C7823006621AE /* HeartRateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateViewController.swift; sourceTree = "<group>"; };
 		67F4C4FD6FDFC5D3E6B36F6A /* Pods-BluetoothTutorialTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoothTutorialTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoothTutorialTests/Pods-BluetoothTutorialTests.debug.xcconfig"; sourceTree = "<group>"; };
 		926D583EFCD0917EFCC0BE79 /* Pods-BluetoothTutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoothTutorial.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoothTutorial/Pods-BluetoothTutorial.release.xcconfig"; sourceTree = "<group>"; };
 		A5B4D93B795890C1C440C50C /* Pods_BluetoothTutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluetoothTutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,9 +109,9 @@
 		4C6F5DF81D8C677D00B64A6C /* BluetoothTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				4C6F5E281D8C6BFA00B64A6C /* Bluetooth */,
+				4C6F5E271D8C6BF300B64A6C /* ViewController */,
 				4C6F5DF91D8C677D00B64A6C /* AppDelegate.swift */,
-				4C6F5DFB1D8C677D00B64A6C /* ViewController.swift */,
-				4C6F5DFD1D8C677D00B64A6C /* Main.storyboard */,
 				4C6F5E001D8C677D00B64A6C /* Assets.xcassets */,
 				4C6F5E021D8C677D00B64A6C /* LaunchScreen.storyboard */,
 				4C6F5E051D8C677D00B64A6C /* Info.plist */,
@@ -135,6 +135,22 @@
 				4C6F5E1B1D8C677D00B64A6C /* Info.plist */,
 			);
 			path = BluetoothTutorialUITests;
+			sourceTree = "<group>";
+		};
+		4C6F5E271D8C6BF300B64A6C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4C7BC03D1D8C7823006621AE /* HeartRateViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		4C6F5E281D8C6BFA00B64A6C /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				4C6F5E291D8C6C1A00B64A6C /* BluetoothDevice.swift */,
+			);
+			name = Bluetooth;
 			sourceTree = "<group>";
 		};
 		C32C59F32EE3176345739172 /* Pods */ = {
@@ -226,11 +242,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Yuchen Nie";
 				TargetAttributes = {
 					4C6F5DF51D8C677D00B64A6C = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 39G7526YCT;
 					};
 					4C6F5E091D8C677D00B64A6C = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -269,7 +286,6 @@
 			files = (
 				4C6F5E041D8C677D00B64A6C /* LaunchScreen.storyboard in Resources */,
 				4C6F5E011D8C677D00B64A6C /* Assets.xcassets in Resources */,
-				4C6F5DFF1D8C677D00B64A6C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +403,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C6F5DFC1D8C677D00B64A6C /* ViewController.swift in Sources */,
+				4C7BC03E1D8C7823006621AE /* HeartRateViewController.swift in Sources */,
+				4C6F5E2A1D8C6C1A00B64A6C /* BluetoothDevice.swift in Sources */,
 				4C6F5DFA1D8C677D00B64A6C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,14 +441,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4C6F5DFD1D8C677D00B64A6C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C6F5DFE1D8C677D00B64A6C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4C6F5E021D8C677D00B64A6C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -457,8 +466,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -480,11 +491,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -503,8 +515,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -520,9 +534,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -532,7 +548,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4C1E62FAB763945F3F60062F /* Pods-BluetoothTutorial.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 39G7526YCT;
 				INFOPLIST_FILE = BluetoothTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Fair.Midlend.BluetoothTutorial;
@@ -544,7 +562,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 926D583EFCD0917EFCC0BE79 /* Pods-BluetoothTutorial.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 39G7526YCT;
 				INFOPLIST_FILE = BluetoothTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Fair.Midlend.BluetoothTutorial;
@@ -556,6 +576,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 67F4C4FD6FDFC5D3E6B36F6A /* Pods-BluetoothTutorialTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BluetoothTutorialTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -569,6 +590,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47A62DAE9B05C90C3D4CF371 /* Pods-BluetoothTutorialTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BluetoothTutorialTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
