@@ -25,6 +25,10 @@
 		4C34EED51CD01ABD003174F6 /* SampleHTMLParsingPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C34EED41CD01ABD003174F6 /* SampleHTMLParsingPost.json */; };
 		4C34EED71CD25EEA003174F6 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34EED61CD25EEA003174F6 /* HTMLParser.swift */; };
 		4C34EED91CD26C2D003174F6 /* WWXMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34EED81CD26C2D003174F6 /* WWXMLElement.swift */; };
+		4C34F1E61D86DFDE002D1F0D /* ContainerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34F1E51D86DFDE002D1F0D /* ContainerTable.swift */; };
+		4C34F1E81D86E06D002D1F0D /* RenderingHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34F1E71D86E06D002D1F0D /* RenderingHelperFunctions.swift */; };
+		4C34F1EA1D86FC5D002D1F0D /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34F1E91D86FC5D002D1F0D /* ViewType.swift */; };
+		4C34F1EC1D872A03002D1F0D /* ContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34F1EB1D872A03002D1F0D /* ContainerCell.swift */; };
 		4C505AE91CE51FAC00011753 /* HTMLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C505AE81CE51FAC00011753 /* HTMLParserTests.swift */; };
 		4C505AEE1CE5281100011753 /* Sample22.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C505AED1CE5281100011753 /* Sample22.json */; };
 		4C505AF01CE5283100011753 /* Sample21.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C505AEF1CE5283100011753 /* Sample21.json */; };
@@ -80,6 +84,10 @@
 		4C34EED41CD01ABD003174F6 /* SampleHTMLParsingPost.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleHTMLParsingPost.json; sourceTree = "<group>"; };
 		4C34EED61CD25EEA003174F6 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		4C34EED81CD26C2D003174F6 /* WWXMLElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWXMLElement.swift; sourceTree = "<group>"; };
+		4C34F1E51D86DFDE002D1F0D /* ContainerTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTable.swift; sourceTree = "<group>"; };
+		4C34F1E71D86E06D002D1F0D /* RenderingHelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderingHelperFunctions.swift; sourceTree = "<group>"; };
+		4C34F1E91D86FC5D002D1F0D /* ViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
+		4C34F1EB1D872A03002D1F0D /* ContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerCell.swift; sourceTree = "<group>"; };
 		4C505AE81CE51FAC00011753 /* HTMLParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParserTests.swift; sourceTree = "<group>"; };
 		4C505AED1CE5281100011753 /* Sample22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sample22.json; sourceTree = "<group>"; };
 		4C505AEF1CE5283100011753 /* Sample21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sample21.json; sourceTree = "<group>"; };
@@ -166,6 +174,7 @@
 		4C0054831CC175C500F2AB59 /* TextKitTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				4C34F1E41D86DFAF002D1F0D /* RenderingUnit */,
 				4C0054C01CC681DB00F2AB59 /* SampleHTML */,
 				4C0054BD1CC5353700F2AB59 /* TableView */,
 				4C0054B21CC532BA00F2AB59 /* WWTextView */,
@@ -234,6 +243,17 @@
 			name = SampleHTML;
 			sourceTree = "<group>";
 		};
+		4C34F1E41D86DFAF002D1F0D /* RenderingUnit */ = {
+			isa = PBXGroup;
+			children = (
+				4C34F1E51D86DFDE002D1F0D /* ContainerTable.swift */,
+				4C34F1E71D86E06D002D1F0D /* RenderingHelperFunctions.swift */,
+				4C34F1E91D86FC5D002D1F0D /* ViewType.swift */,
+				4C34F1EB1D872A03002D1F0D /* ContainerCell.swift */,
+			);
+			name = RenderingUnit;
+			sourceTree = "<group>";
+		};
 		4C505AEA1CE5272100011753 /* SampleHTML */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,12 +272,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C0054A91CC175C500F2AB59 /* Build configuration list for PBXNativeTarget "TextKitTutorial" */;
 			buildPhases = (
-				119A8255E22268965B1FC62E /* Check Pods Manifest.lock */,
+				119A8255E22268965B1FC62E /* [CP] Check Pods Manifest.lock */,
 				4C00547D1CC175C500F2AB59 /* Sources */,
 				4C00547E1CC175C500F2AB59 /* Frameworks */,
 				4C00547F1CC175C500F2AB59 /* Resources */,
-				8F8D3199869C879B4174DC06 /* Embed Pods Frameworks */,
-				452FBE6E5FBFAF2CCE78272A /* Copy Pods Resources */,
+				8F8D3199869C879B4174DC06 /* [CP] Embed Pods Frameworks */,
+				452FBE6E5FBFAF2CCE78272A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,12 +292,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C0054AC1CC175C500F2AB59 /* Build configuration list for PBXNativeTarget "TextKitTutorialTests" */;
 			buildPhases = (
-				6FE21B79DEAEBA1B05BAFD24 /* Check Pods Manifest.lock */,
+				6FE21B79DEAEBA1B05BAFD24 /* [CP] Check Pods Manifest.lock */,
 				4C0054911CC175C500F2AB59 /* Sources */,
 				4C0054921CC175C500F2AB59 /* Frameworks */,
 				4C0054931CC175C500F2AB59 /* Resources */,
-				C64C872DF5C72E5E1CF84FD9 /* Embed Pods Frameworks */,
-				C504EAEFFEA2AA72C8596CCA /* Copy Pods Resources */,
+				C64C872DF5C72E5E1CF84FD9 /* [CP] Embed Pods Frameworks */,
+				C504EAEFFEA2AA72C8596CCA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -384,14 +404,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		119A8255E22268965B1FC62E /* Check Pods Manifest.lock */ = {
+		119A8255E22268965B1FC62E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,14 +419,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		452FBE6E5FBFAF2CCE78272A /* Copy Pods Resources */ = {
+		452FBE6E5FBFAF2CCE78272A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,14 +434,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TextKitTutorial/Pods-TextKitTutorial-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6FE21B79DEAEBA1B05BAFD24 /* Check Pods Manifest.lock */ = {
+		6FE21B79DEAEBA1B05BAFD24 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,14 +449,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8F8D3199869C879B4174DC06 /* Embed Pods Frameworks */ = {
+		8F8D3199869C879B4174DC06 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,14 +464,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TextKitTutorial/Pods-TextKitTutorial-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C504EAEFFEA2AA72C8596CCA /* Copy Pods Resources */ = {
+		C504EAEFFEA2AA72C8596CCA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,14 +479,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TextKitTutorialTests/Pods-TextKitTutorialTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C64C872DF5C72E5E1CF84FD9 /* Embed Pods Frameworks */ = {
+		C64C872DF5C72E5E1CF84FD9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,14 +501,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C34F1EC1D872A03002D1F0D /* ContainerCell.swift in Sources */,
 				4C0054871CC175C500F2AB59 /* ViewController.swift in Sources */,
 				4C0054BC1CC5352200F2AB59 /* BaseTableView.swift in Sources */,
+				4C34F1E61D86DFDE002D1F0D /* ContainerTable.swift in Sources */,
 				4C0054B71CC533E500F2AB59 /* DataType.swift in Sources */,
 				4C0054B81CC533E500F2AB59 /* Handler.swift in Sources */,
 				4C0054BF1CC5354A00F2AB59 /* BaseCell.swift in Sources */,
+				4C34F1EA1D86FC5D002D1F0D /* ViewType.swift in Sources */,
 				4CA666811CC9578600ECC1AE /* ImageLoader.swift in Sources */,
 				4C34EED91CD26C2D003174F6 /* WWXMLElement.swift in Sources */,
 				4C0054BA1CC533E500F2AB59 /* TextView.swift in Sources */,
+				4C34F1E81D86E06D002D1F0D /* RenderingHelperFunctions.swift in Sources */,
 				4C0054B91CC533E500F2AB59 /* TextStorage.swift in Sources */,
 				4C0054C61CC6D6CF00F2AB59 /* EnlargedImage.swift in Sources */,
 				4C34EED71CD25EEA003174F6 /* HTMLParser.swift in Sources */,

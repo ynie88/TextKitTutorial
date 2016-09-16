@@ -1,15 +1,13 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, ‘9.0’
+platform :ios, '9.0'
 # Uncomment this line if you're using Swift
 
 use_frameworks!
 
 def shared_pods
     pod 'SnapKit'
-    pod 'Appendix'
-    pod 'Fuzi'
-    pod 'Kingfisher'
     pod 'ObjectMapper'
+    pod 'BluetoothKit'
 end
 
 def testing_pods
@@ -17,12 +15,12 @@ def testing_pods
     pod 'Nimble', '~> 3.2.0'
 end
 
-target 'TextKitTutorial' do
+target 'BluetoothTutorial' do
     shared_pods
 end
 
 
-target 'TextKitTutorialTests' do
+target 'BluetoothTutorialTests' do
     shared_pods
     testing_pods
 end
