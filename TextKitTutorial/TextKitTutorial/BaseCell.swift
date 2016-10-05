@@ -13,7 +13,7 @@ import SnapKit
 class BaseCell: UITableViewCell {
     static let identifier = "BaseCellIdentifier"
     
-    private lazy var textView:WWHTMLTextView = {
+    fileprivate lazy var textView:WWHTMLTextView = {
         let textView = WWHTMLTextView(frame: .zero)
         
         self.addSubview(textView)

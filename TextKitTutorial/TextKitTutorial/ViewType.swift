@@ -20,9 +20,9 @@ struct JSONConstants {
 }
 
 enum Type {
-    case TextField
-    case ImageView
-    case Label
+    case textField
+    case imageView
+    case label
 }
 
 struct ViewType:Mappable {
@@ -31,8 +31,8 @@ struct ViewType:Mappable {
     var id:String!
     var content:String?
     
-    init?(_ map: Map) {
-        mapping(map)
+    init?(map: Map) {
+        mapping(map: map)
     }
     
     mutating func mapping(map: Map) {

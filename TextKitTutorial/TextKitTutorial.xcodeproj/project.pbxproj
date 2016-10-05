@@ -34,8 +34,11 @@
 		4C505AF01CE5283100011753 /* Sample21.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C505AEF1CE5283100011753 /* Sample21.json */; };
 		4C505AF21CE5294B00011753 /* Sample154.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C505AF11CE5294B00011753 /* Sample154.json */; };
 		4C505AF41CE5295B00011753 /* SampleJSONTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C505AF31CE5295B00011753 /* SampleJSONTest.json */; };
+		4C6E18511D9C709600102673 /* GroupAsyncTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E18501D9C709600102673 /* GroupAsyncTutorial.swift */; };
+		4C6E23591DA440450059710C /* SignatureBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E23581DA440450059710C /* SignatureBox.swift */; };
+		4C6E235B1DA443FC0059710C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E235A1DA443FC0059710C /* TestViewController.swift */; };
+		4C6E235D1DA449C30059710C /* SignatureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E235C1DA449C30059710C /* SignatureImageView.swift */; };
 		4CA6667F1CC9101200ECC1AE /* DiscourseTwo.html in Resources */ = {isa = PBXBuildFile; fileRef = 4CA6667E1CC9101200ECC1AE /* DiscourseTwo.html */; };
-		4CA666811CC9578600ECC1AE /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA666801CC9578600ECC1AE /* ImageLoader.swift */; };
 		67024DC0783D7565D8548C39 /* Pods_TextKitTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F48AFD5C1D70186FCD705AD9 /* Pods_TextKitTutorial.framework */; };
 		F8420046ABF6B30799A9FA3F /* Pods_TextKitTutorialTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22C14C42DB00E838B42D49F /* Pods_TextKitTutorialTests.framework */; };
 /* End PBXBuildFile section */
@@ -93,8 +96,11 @@
 		4C505AEF1CE5283100011753 /* Sample21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sample21.json; sourceTree = "<group>"; };
 		4C505AF11CE5294B00011753 /* Sample154.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sample154.json; sourceTree = "<group>"; };
 		4C505AF31CE5295B00011753 /* SampleJSONTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleJSONTest.json; sourceTree = "<group>"; };
+		4C6E18501D9C709600102673 /* GroupAsyncTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupAsyncTutorial.swift; sourceTree = "<group>"; };
+		4C6E23581DA440450059710C /* SignatureBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureBox.swift; sourceTree = "<group>"; };
+		4C6E235A1DA443FC0059710C /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		4C6E235C1DA449C30059710C /* SignatureImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureImageView.swift; sourceTree = "<group>"; };
 		4CA6667E1CC9101200ECC1AE /* DiscourseTwo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DiscourseTwo.html; sourceTree = "<group>"; };
-		4CA666801CC9578600ECC1AE /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		56F64FB5A83CBAC56E5ECF4C /* Pods-TextKitTutorialTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextKitTutorialTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TextKitTutorialTests/Pods-TextKitTutorialTests.release.xcconfig"; sourceTree = "<group>"; };
 		B8AD3849D01CD3E97F620C67 /* Pods-TextKitTutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextKitTutorial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TextKitTutorial/Pods-TextKitTutorial.debug.xcconfig"; sourceTree = "<group>"; };
 		D22C14C42DB00E838B42D49F /* Pods_TextKitTutorialTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextKitTutorialTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,19 +180,19 @@
 		4C0054831CC175C500F2AB59 /* TextKitTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				4C6E23551DA4402E0059710C /* SignatureBox */,
+				4C6E184F1D9C707F00102673 /* TutorialViewControllers */,
 				4C34F1E41D86DFAF002D1F0D /* RenderingUnit */,
 				4C0054C01CC681DB00F2AB59 /* SampleHTML */,
 				4C0054BD1CC5353700F2AB59 /* TableView */,
 				4C0054B21CC532BA00F2AB59 /* WWTextView */,
 				4C0054841CC175C500F2AB59 /* AppDelegate.swift */,
-				4C0054861CC175C500F2AB59 /* ViewController.swift */,
 				4C00548B1CC175C500F2AB59 /* Assets.xcassets */,
 				4C00548D1CC175C500F2AB59 /* LaunchScreen.storyboard */,
 				4C0054901CC175C500F2AB59 /* Info.plist */,
 				4C0054C31CC6828300F2AB59 /* HelperFunctions.swift */,
 				4C0054C51CC6D6CF00F2AB59 /* EnlargedImage.swift */,
 				4C0054C71CC819D100F2AB59 /* TextKitTutorialBridgingHeader.h */,
-				4CA666801CC9578600ECC1AE /* ImageLoader.swift */,
 				4C34EED61CD25EEA003174F6 /* HTMLParser.swift */,
 				4C34EED81CD26C2D003174F6 /* WWXMLElement.swift */,
 			);
@@ -216,6 +222,7 @@
 		4C0054B21CC532BA00F2AB59 /* WWTextView */ = {
 			isa = PBXGroup;
 			children = (
+				4C0054861CC175C500F2AB59 /* ViewController.swift */,
 				4C0054B31CC533E500F2AB59 /* DataType.swift */,
 				4C0054B41CC533E500F2AB59 /* Handler.swift */,
 				4C0054B51CC533E500F2AB59 /* TextStorage.swift */,
@@ -263,6 +270,24 @@
 				4C505AF31CE5295B00011753 /* SampleJSONTest.json */,
 			);
 			name = SampleHTML;
+			sourceTree = "<group>";
+		};
+		4C6E184F1D9C707F00102673 /* TutorialViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C6E18501D9C709600102673 /* GroupAsyncTutorial.swift */,
+			);
+			name = TutorialViewControllers;
+			sourceTree = "<group>";
+		};
+		4C6E23551DA4402E0059710C /* SignatureBox */ = {
+			isa = PBXGroup;
+			children = (
+				4C6E23581DA440450059710C /* SignatureBox.swift */,
+				4C6E235A1DA443FC0059710C /* TestViewController.swift */,
+				4C6E235C1DA449C30059710C /* SignatureImageView.swift */,
+			);
+			name = SignatureBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,13 +364,17 @@
 				TargetAttributes = {
 					4C0054801CC175C500F2AB59 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 39G7526YCT;
+						LastSwiftMigration = 0800;
 					};
 					4C0054941CC175C500F2AB59 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4C0054801CC175C500F2AB59;
 					};
 					4C00549F1CC175C500F2AB59 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4C0054801CC175C500F2AB59;
 					};
 				};
@@ -416,7 +445,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		452FBE6E5FBFAF2CCE78272A /* [CP] Copy Pods Resources */ = {
@@ -446,7 +475,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8F8D3199869C879B4174DC06 /* [CP] Embed Pods Frameworks */ = {
@@ -502,20 +531,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C34F1EC1D872A03002D1F0D /* ContainerCell.swift in Sources */,
+				4C6E235B1DA443FC0059710C /* TestViewController.swift in Sources */,
 				4C0054871CC175C500F2AB59 /* ViewController.swift in Sources */,
+				4C6E235D1DA449C30059710C /* SignatureImageView.swift in Sources */,
 				4C0054BC1CC5352200F2AB59 /* BaseTableView.swift in Sources */,
 				4C34F1E61D86DFDE002D1F0D /* ContainerTable.swift in Sources */,
 				4C0054B71CC533E500F2AB59 /* DataType.swift in Sources */,
 				4C0054B81CC533E500F2AB59 /* Handler.swift in Sources */,
 				4C0054BF1CC5354A00F2AB59 /* BaseCell.swift in Sources */,
 				4C34F1EA1D86FC5D002D1F0D /* ViewType.swift in Sources */,
-				4CA666811CC9578600ECC1AE /* ImageLoader.swift in Sources */,
 				4C34EED91CD26C2D003174F6 /* WWXMLElement.swift in Sources */,
 				4C0054BA1CC533E500F2AB59 /* TextView.swift in Sources */,
 				4C34F1E81D86E06D002D1F0D /* RenderingHelperFunctions.swift in Sources */,
 				4C0054B91CC533E500F2AB59 /* TextStorage.swift in Sources */,
 				4C0054C61CC6D6CF00F2AB59 /* EnlargedImage.swift in Sources */,
 				4C34EED71CD25EEA003174F6 /* HTMLParser.swift in Sources */,
+				4C6E23591DA440450059710C /* SignatureBox.swift in Sources */,
+				4C6E18511D9C709600102673 /* GroupAsyncTutorial.swift in Sources */,
 				4C0054851CC175C500F2AB59 /* AppDelegate.swift in Sources */,
 				4C0054C41CC6828300F2AB59 /* HelperFunctions.swift in Sources */,
 			);
@@ -653,11 +685,13 @@
 			baseConfigurationReference = B8AD3849D01CD3E97F620C67 /* Pods-TextKitTutorial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 39G7526YCT;
 				INFOPLIST_FILE = TextKitTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.TextKitTutorial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = TextKitTutorial/TextKitTutorialBridgingHeader.h;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -666,11 +700,13 @@
 			baseConfigurationReference = 3747452398459F983AA5B528 /* Pods-TextKitTutorial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 39G7526YCT;
 				INFOPLIST_FILE = TextKitTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.TextKitTutorial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = TextKitTutorial/TextKitTutorialBridgingHeader.h;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -683,6 +719,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.TextKitTutorialTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextKitTutorial.app/TextKitTutorial";
 			};
 			name = Debug;
@@ -696,6 +733,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.TextKitTutorialTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextKitTutorial.app/TextKitTutorial";
 			};
 			name = Release;
@@ -707,6 +745,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.TextKitTutorialUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = TextKitTutorial;
 			};
 			name = Debug;
@@ -718,6 +757,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WeddingWire.TextKitTutorialUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = TextKitTutorial;
 			};
 			name = Release;

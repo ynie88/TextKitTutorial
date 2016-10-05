@@ -17,28 +17,28 @@ enum urlScheme:String {
 }
 
 class Handler : NSObject, UITextViewDelegate {
-    func textView(textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool {
+    func textView(_ textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool {
         
         if let image = textAttachment.image {
             let imageVC = EnlargeImageVC()
             imageVC.configWithImage(image)
-            AppDelegate.instance.window?.rootViewController?.presentViewController(imageVC, animated: true, completion: nil)
+            AppDelegate.instance.window?.rootViewController?.present(imageVC, animated: true, completion: nil)
         }
         else if let contents = textAttachment.fileWrapper?.regularFileContents{
             if let image = UIImage(data: contents) {
                 let imageVC = EnlargeImageVC()
                 imageVC.configWithImage(image)
-                AppDelegate.instance.window?.rootViewController?.presentViewController(imageVC, animated: true, completion: nil)
+                AppDelegate.instance.window?.rootViewController?.present(imageVC, animated: true, completion: nil)
             }
         }
         
         return true
     }
     
-    func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         
-        let text = textView.attributedText.attributedSubstringFromRange(characterRange).string
-        if text.rangeOfString("@") != nil {
+        let text = textView.attributedText.attributedSubstring(from: characterRange).string
+        if text.range(of: "@") != nil {
             //This is a mention, open user's profile
         } else {
             //This is a link, open page via webview
@@ -47,16 +47,16 @@ class Handler : NSObject, UITextViewDelegate {
         return false
     }
     
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
         if let textStorage = textView.layoutManager.textStorage as? TextStorage {
             let targetLocation = textView.selectedRange.location
             
             for range in textStorage.emails {
                 if range.location >= targetLocation || range.location + range.length >= targetLocation {
                     
-                    let textValue = (textStorage.string as NSString).substringWithRange(range)
+                    let textValue = (textStorage.string as NSString).substring(with: range)
                     
-                    detected(textView, string: textValue, type: DetectedType.Email, range: range)
+                    detected(textView, string: textValue, type: DetectedType.email, range: range)
                     
                     return
                 }
@@ -65,9 +65,9 @@ class Handler : NSObject, UITextViewDelegate {
             for range in textStorage.urls {
                 if range.location >= targetLocation || range.location + range.length >= targetLocation {
                     
-                    let textValue = (textStorage.string as NSString).substringWithRange(range)
+                    let textValue = (textStorage.string as NSString).substring(with: range)
                     
-                    detected(textView, string: textValue, type: DetectedType.URL, range: range)
+                    detected(textView, string: textValue, type: DetectedType.url, range: range)
                     
                     return
                 }
@@ -77,7 +77,7 @@ class Handler : NSObject, UITextViewDelegate {
         }
     }
     
-    func detected(textView: UITextView, string: String, type: DetectedType, range: NSRange) {
-        (textView as! WWHTMLTextView).detected?(string: string, type: type, range: range)
+    func detected(_ textView: UITextView, string: String, type: DetectedType, range: NSRange) {
+        (textView as! WWHTMLTextView).detected?(string, type, range)
     }
 }

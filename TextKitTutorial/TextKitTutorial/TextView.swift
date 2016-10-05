@@ -10,24 +10,24 @@ import Foundation
 import UIKit
 
 class WWHTMLTextView : UITextView {
-    var onClick:((string:String, type:DetectedType, range:NSRange) -> Void)?
-    var detected:((string:String, type:DetectedType, range:NSRange) -> Void)?
+    var onClick:((_ string:String, _ type:DetectedType, _ range:NSRange) -> Void)?
+    var detected:((_ string:String, _ type:DetectedType, _ range:NSRange) -> Void)?
     var tapGestureRecognizer:UITapGestureRecognizer?
     var shouldUpdate        = true
-    var highlightColor      = UIColor.blueColor().colorWithAlphaComponent(0.2)
+    var highlightColor      = UIColor.blue.withAlphaComponent(0.2)
     var placeholderLabel    = UILabel(frame: .zero)
     let tapInset            = UIEdgeInsets(top: -2, left: -2, bottom: -2, right: -2)
     
-    private var prettyStorage       = NSTextStorage()
-    private var prettyLayoutManager = NSLayoutManager()
-    private var prettyContainer     = NSTextContainer()
+    fileprivate var prettyStorage       = NSTextStorage()
+    fileprivate var prettyLayoutManager = NSLayoutManager()
+    fileprivate var prettyContainer     = NSTextContainer()
 
     var placeholder: String? {
         didSet {
             var attributes = [String: AnyObject]()
             
-            if typingAttributes.count > 0 && isFirstResponder() {
-                attributes = typingAttributes
+            if typingAttributes.count > 0 && isFirstResponder {
+                attributes = typingAttributes as [String : AnyObject]
             } else {
                 if let font = font {
                     attributes[NSFontAttributeName] = font
@@ -35,7 +35,7 @@ class WWHTMLTextView : UITextView {
                 
                 attributes[NSForegroundColorAttributeName] = UIColor(white: 0.7, alpha: 1.0)
                 
-                if textAlignment != NSTextAlignment.Left {
+                if textAlignment != NSTextAlignment.left {
                     let paragraph                               = NSMutableParagraphStyle()
                     paragraph.alignment                         = textAlignment
                     attributes[NSParagraphStyleAttributeName]   = paragraph
@@ -75,16 +75,16 @@ class WWHTMLTextView : UITextView {
     }
     
     func initialize() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(textChanged), name: UITextViewTextDidChangeNotification, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(textChanged), name: NSNotification.Name.UITextViewTextDidChange, object: self)
 
-        placeholderLabel.hidden = false
+        placeholderLabel.isHidden = false
         
         addSubview(placeholderLabel)
     }
 
     func textChanged() {
         if let _ = attributedPlaceholder {
-            placeholderLabel.hidden = text.characters.count == 0 ? false : true
+            placeholderLabel.isHidden = text.characters.count == 0 ? false : true
         }
         
         setNeedsDisplay()
@@ -96,13 +96,13 @@ class WWHTMLTextView : UITextView {
             
             lineEnd.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle(0), range: NSRange(location: 0, length: lineEnd.length))
             
-            attrString.appendAttributedString(lineEnd)
+            attrString.append(lineEnd)
             
             attributedText = attrString
         }
     }
     
-    func paragraphStyle(spacing:CGFloat) -> NSParagraphStyle {
+    func paragraphStyle(_ spacing:CGFloat) -> NSParagraphStyle {
         let style                       = NSMutableParagraphStyle()
         style.paragraphSpacing          = spacing
         style.paragraphSpacingBefore    = spacing
@@ -112,19 +112,19 @@ class WWHTMLTextView : UITextView {
 }
 
 extension WWHTMLTextView /* Actions */ {
-    func clickedDetected(string:String, type:DetectedType, range:NSRange) {
-        onClick?(string:string, type:type, range:range)
+    func clickedDetected(_ string:String, type:DetectedType, range:NSRange) {
+        onClick?(string, type, range)
     }
 }
 
 extension WWHTMLTextView /* Detection */ {
-    func urlsAt(location:CGPoint, complete:(NSRange) -> ()) {
+    func urlsAt(_ location:CGPoint, complete:@escaping (NSRange) -> ()) {
         var found = false
         
-        attributedText.enumerateAttribute(DetectedDataHandlerAttributeName, inRange: NSMakeRange(0, attributedText.length), options: []) { (value, range, stop) in
+        attributedText.enumerateAttribute(DetectedDataHandlerAttributeName, in: NSMakeRange(0, attributedText.length), options: []) { (value, range, stop) in
             if value != nil {
                 self.frames([NSValue(range: range),]) { (frame, range, stop) in
-                    if !found && CGRectContainsPoint(frame, location) {
+                    if !found && frame.contains(location) {
                         
                         self.drawHighlight(frame, range: range)
                         
@@ -137,10 +137,10 @@ extension WWHTMLTextView /* Detection */ {
         }
         
         if !found {
-            attributedText.enumerateAttribute(ImageAttributeName, inRange: NSMakeRange(0, attributedText.length), options: []) { (value, range, stop) in
+            attributedText.enumerateAttribute(ImageAttributeName, in: NSMakeRange(0, attributedText.length), options: []) { (value, range, stop) in
                 if value != nil {
                     self.frames([NSValue(range: range),]) { (frame, range, stop) in
-                        if !found && CGRectContainsPoint(frame, location) {
+                        if !found && frame.contains(location) {
                             
                             self.drawHighlight(frame, range: range)
                             
@@ -154,31 +154,31 @@ extension WWHTMLTextView /* Detection */ {
         }
     }
     
-    func frames(ranges:[NSValue], complete:(frame: CGRect, range:NSRange, stop:Bool) -> Void) {
+    func frames(_ ranges:[NSValue], complete:@escaping (_ frame: CGRect, _ range:NSRange, _ stop:Bool) -> Void) {
         for value in ranges {
             let range   = value.rangeValue
-            let glyphs  = layoutManager.glyphRangeForCharacterRange(range, actualCharacterRange: nil)
+            let glyphs  = layoutManager.glyphRange(forCharacterRange: range, actualCharacterRange: nil)
             
-            layoutManager.enumerateEnclosingRectsForGlyphRange(glyphs, withinSelectedGlyphRange: NSMakeRange(NSNotFound, 0), inTextContainer: textContainer) { (rect, stop) in
+            layoutManager.enumerateEnclosingRects(forGlyphRange: glyphs, withinSelectedGlyphRange: NSMakeRange(NSNotFound, 0), in: textContainer) { (rect, stop) in
                 var rect        = rect
                 rect.origin.x  += self.textContainerInset.left
                 rect.origin.y  += self.textContainerInset.top
                 rect            = UIEdgeInsetsInsetRect(rect, self.tapInset)
                 
-                complete(frame: rect, range: range, stop: true)
+                complete(rect, range, true)
             }
         }
     }
     
-    func currentlydetected(string:String, type:DetectedType, range:NSRange) {
-        detected?(string:string, type:type, range:range)
+    func currentlydetected(_ string:String, type:DetectedType, range:NSRange) {
+        detected?(string, type, range)
     }
 }
 
 extension WWHTMLTextView /* Imaging */ {
     func imageRanges() -> [[String : NSRange]] {
         var ranges = [[String : NSRange]]()
-        attributedText.enumerateAttribute(ImageAttributeName, inRange: NSRange(location: 0, length: attributedText.length), options: []) { (value, range, stop) in
+        attributedText.enumerateAttribute(ImageAttributeName, in: NSRange(location: 0, length: attributedText.length), options: []) { (value, range, stop) in
             guard let value = value as? String else { return }
             
             ranges.append([value : range])
@@ -190,19 +190,19 @@ extension WWHTMLTextView /* Imaging */ {
     func range(of imageHash:String) -> NSRange? {
         var imageRange:NSRange? = nil
         
-        attributedText.enumerateAttribute(ImageAttributeName, inRange: NSRange(location: 0, length: attributedText.length), options: []) { (value, range, stop) in
-            guard let value = value as? String where value == imageHash else { return }
+        attributedText.enumerateAttribute(ImageAttributeName, in: NSRange(location: 0, length: attributedText.length), options: []) { (value, range, stop) in
+            guard let value = value as? String , value == imageHash else { return }
             imageRange = range
         }
         
         return imageRange
     }
     
-    func insertImage(name:String, image:UIImage, width:CGFloat) {
+    func insertImage(_ name:String, image:UIImage, width:CGFloat) {
         if let attrText = attributedText.mutableCopy() as? NSMutableAttributedString {
-            attrText.appendAttributedString(NSAttributedString(string: "\n"))
+            attrText.append(NSAttributedString(string: "\n"))
             
-            let _ = text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+            let _ = text.lengthOfBytes(using: String.Encoding.utf8)
             
             attributedText = attrText
             
@@ -216,37 +216,37 @@ extension WWHTMLTextView /* Imaging */ {
         }
     }
     
-    func insertImage(name:String, image:UIImage, size:CGSize) {
+    func insertImage(_ name:String, image:UIImage, size:CGSize) {
         let attachment      = NSTextAttachment(data: nil, ofType: nil)
         attachment.image    = image
         attachment.bounds   = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         
         if let attachedAttributedString = NSAttributedString(attachment: attachment) as? NSMutableAttributedString {
-            attachedAttributedString.addAttributes([NSParagraphStyleAttributeName: paragraphStyle(0), DetectedDataHandlerAttributeName: DetectedType.Image.rawValue], range: NSRange(location: 0, length: attachedAttributedString.length))
+            attachedAttributedString.addAttributes([NSParagraphStyleAttributeName: paragraphStyle(0), DetectedDataHandlerAttributeName: DetectedType.image.rawValue], range: NSRange(location: 0, length: attachedAttributedString.length))
             
             if let attrString = attributedText.mutableCopy() as? NSMutableAttributedString {
-                attrString.appendAttributedString(attachedAttributedString)
+                attrString.append(attachedAttributedString)
                 
                 attributedText = attrString
             }
         }
     }
     
-    func insertImage(name:String, image:UIImage, size:CGSize, at index:Int) -> NSRange{
+    func insertImage(_ name:String, image:UIImage, size:CGSize, at index:Int) -> NSRange{
         let attachment      = NSTextAttachment(data: nil, ofType: nil)
         attachment.image    = image
-        attachment.bounds   = CGRectMake(0, 0, size.width, size.height)
+        attachment.bounds   = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         
         if let attachmentAttributedString = NSAttributedString(attachment: attachment) as? NSMutableAttributedString {
             let paragraphStyle                      = NSMutableParagraphStyle()
             paragraphStyle.paragraphSpacing         = 10
             paragraphStyle.paragraphSpacingBefore   = 10
-            let attr: [String: AnyObject]           = [NSParagraphStyleAttributeName: paragraphStyle, ImageAttributeName: name, DetectedDataHandlerAttributeName: DetectedType.Image.rawValue]
+            let attr: [String: AnyObject]           = [NSParagraphStyleAttributeName: paragraphStyle, ImageAttributeName: name as AnyObject, DetectedDataHandlerAttributeName: DetectedType.image.rawValue as AnyObject]
             
             attachmentAttributedString.addAttributes(attr, range: NSRange(location: 0, length: attachmentAttributedString.length))
             
             if let attrString = self.attributedText.mutableCopy() as? NSMutableAttributedString {
-                attrString.insertAttributedString(attachmentAttributedString, atIndex: index)
+                attrString.insert(attachmentAttributedString, at: index)
                 let range = NSMakeRange(index, attachmentAttributedString.length)
                 self.attributedText = attrString
                 return range
@@ -255,16 +255,16 @@ extension WWHTMLTextView /* Imaging */ {
         return NSMakeRange(0, 0)
     }
     
-    func removeImage(range:NSRange){
+    func removeImage(_ range:NSRange){
         if let attrString = self.attributedText.mutableCopy() as? NSMutableAttributedString {
-            attrString.replaceCharactersInRange(range, withString: "")
+            attrString.replaceCharacters(in: range, with: "")
             self.attributedText = attrString
         }
     }
 }
 
 extension WWHTMLTextView /* Drawing */ {
-    func placeholderFrame(frame:CGRect) -> CGRect {
+    func placeholderFrame(_ frame:CGRect) -> CGRect {
         var bounds       = frame
         bounds.origin.x += textContainer.lineFragmentPadding
         bounds.origin.y += textContainer.lineFragmentPadding
@@ -272,24 +272,24 @@ extension WWHTMLTextView /* Drawing */ {
         return bounds
     }
     
-    func drawHighlight(frame:CGRect, range: NSRange) {
+    func drawHighlight(_ frame:CGRect, range: NSRange) {
         let layer               = CALayer()
         layer.frame             = frame
-        layer.backgroundColor   = highlightColor.CGColor
+        layer.backgroundColor   = highlightColor.cgColor
         layer.cornerRadius      = 4.0
         layer.masksToBounds     = true
         
         self.layer.addSublayer(layer)
         
-        let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(0.4 * Double(NSEC_PER_SEC)))
-        dispatch_after(delay, dispatch_get_main_queue()) {
+        let delay = DispatchTime.now() + Double(Int64(0.4 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delay) {
             layer.removeFromSuperlayer()
         }
     }
 }
 
 extension WWHTMLTextView : UIGestureRecognizerDelegate {
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 }

@@ -18,45 +18,45 @@ class TextStorage : NSTextStorage {
     var custom:[NSRange]                    = []
     var tapInset                            = UIEdgeInsets(top: -5, left: -5, bottom: -5, right: -5)
     
-    private let linkPattern     = "[a-zA-Z]+://[0-9a-zA-Z_.?&/=]+"
-    private let emailPattern    = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]+"
+    fileprivate let linkPattern     = "[a-zA-Z]+://[0-9a-zA-Z_.?&/=]+"
+    fileprivate let emailPattern    = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]+"
     override var string: String {
         return backing.string
     }
     
-    override func attributesAtIndex(location: Int, effectiveRange range: NSRangePointer) -> [String : AnyObject] {
-        return backing.attributesAtIndex(location, effectiveRange: range)
+    override func attributes(at location: Int, effectiveRange range: NSRangePointer?) -> [String : Any] {
+        return backing.attributes(at: location, effectiveRange: range)
     }
     
-    override func replaceCharactersInRange(range: NSRange, withString str: String) {
+    override func replaceCharacters(in range: NSRange, with str: String) {
         beginEditing()
         
-        backing.replaceCharactersInRange(range, withString: str)
-        edited([.EditedAttributes, .EditedCharacters,], range: range, changeInLength: (str.characters.count - range.length))
+        backing.replaceCharacters(in: range, with: str)
+        edited([.editedAttributes, .editedCharacters,], range: range, changeInLength: (str.characters.count - range.length))
         endEditing()
     }
     
-    override func setAttributes(attrs: [String : AnyObject]?, range: NSRange) {
+    override func setAttributes(_ attrs: [String : Any]?, range: NSRange) {
         beginEditing()
         
         backing.setAttributes(attrs, range: range)
-        edited([.EditedAttributes,], range: range, changeInLength: 0)
+        edited([.editedAttributes,], range: range, changeInLength: 0)
         
         endEditing()
     }
     
-    override func addAttributes(attrs: [String : AnyObject], range: NSRange) {
+    override func addAttributes(_ attrs: [String : Any], range: NSRange) {
         beginEditing()
         
         backing.addAttributes(attrs, range: range)
-        edited([.EditedAttributes,], range: range, changeInLength: 0)
+        edited([.editedAttributes,], range: range, changeInLength: 0)
         
         endEditing()
     }
     
     override func processEditing() {
         
-        let paragraphRange = (self.string as NSString).paragraphRangeForRange(self.editedRange)
+        let paragraphRange = (self.string as NSString).paragraphRange(for: self.editedRange)
         
         self.removeAttribute(NSForegroundColorAttributeName, range: paragraphRange)
         //self.removeAttribute(NSLinkAttributeName, range: paragraphRange)
@@ -69,13 +69,13 @@ class TextStorage : NSTextStorage {
         emails  = [NSRange]()
         urls    = [NSRange]()
 
-        let linkExpression    = try? NSRegularExpression(pattern: linkPattern, options: NSRegularExpressionOptions())
+        let linkExpression    = try? NSRegularExpression(pattern: linkPattern, options: NSRegularExpression.Options())
         if let linkExpression = linkExpression {
-            linkExpression.enumerateMatchesInString(self.string, options: NSMatchingOptions(), range: paragraphRange) { (result, flags, stop) in
+            linkExpression.enumerateMatches(in: self.string, options: NSRegularExpression.MatchingOptions(), range: paragraphRange) { (result, flags, stop) in
                 
                 if let result = result {
-                    let textValue                               = (self.string as NSString).substringWithRange(result.range)
-                    let textAttributes: [String : AnyObject]!   = [NSForegroundColorAttributeName: UIColor.blueColor(), NSLinkAttributeName: textValue, DetectedDataHandlerAttributeName: DetectedType.URL.rawValue]
+                    let textValue                               = (self.string as NSString).substring(with: result.range)
+                    let textAttributes: [String : AnyObject]!   = [NSForegroundColorAttributeName: UIColor.blue, NSLinkAttributeName: textValue as AnyObject, DetectedDataHandlerAttributeName: DetectedType.url.rawValue as AnyObject]
                     
                     self.addAttributes(textAttributes, range: result.range )
                     self.urls.append(result.range)
@@ -83,13 +83,13 @@ class TextStorage : NSTextStorage {
             }
         }
         
-        let emailExpression    = try? NSRegularExpression(pattern: emailPattern, options: NSRegularExpressionOptions())
+        let emailExpression    = try? NSRegularExpression(pattern: emailPattern, options: NSRegularExpression.Options())
         if let emailExpression = emailExpression {
-            emailExpression.enumerateMatchesInString(self.string, options: NSMatchingOptions(), range: paragraphRange) { (result, flags, stop) in
+            emailExpression.enumerateMatches(in: self.string, options: NSRegularExpression.MatchingOptions(), range: paragraphRange) { (result, flags, stop) in
                 
                 if let result = result {
-                    let textValue                               = (self.string as NSString).substringWithRange(result.range)
-                    let textAttributes: [String : AnyObject]!   = [NSForegroundColorAttributeName: UIColor.blueColor(), NSLinkAttributeName: textValue, DetectedDataHandlerAttributeName: DetectedType.Email.rawValue]
+                    let textValue                               = (self.string as NSString).substring(with: result.range)
+                    let textAttributes: [String : AnyObject]!   = [NSForegroundColorAttributeName: UIColor.blue, NSLinkAttributeName: textValue as AnyObject, DetectedDataHandlerAttributeName: DetectedType.email.rawValue as AnyObject]
                     
                     self.addAttributes(textAttributes, range: result.range )
                     self.emails.append(result.range)
@@ -99,7 +99,7 @@ class TextStorage : NSTextStorage {
         }
         
         for range in custom {
-            let textAttributes: [String : AnyObject]! = [NSForegroundColorAttributeName: UIColor.blueColor(), NSLinkAttributeName: "CustomRange", DetectedDataHandlerAttributeName: DetectedType.Custom.rawValue]
+            let textAttributes: [String : AnyObject]! = [NSForegroundColorAttributeName: UIColor.blue, NSLinkAttributeName: "CustomRange" as AnyObject, DetectedDataHandlerAttributeName: DetectedType.custom.rawValue as AnyObject]
             
             self.addAttributes(textAttributes, range: range )
         }

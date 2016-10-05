@@ -116,12 +116,12 @@ class HTMLParserTest: QuickSpec {
         }
     }
     
-    func getJSONValueFromFile(fileName:String, key:String) -> String? {
-        let bundle = NSBundle(forClass: self.dynamicType)
-        guard let path = bundle.pathForResource(fileName, ofType: "json") else {return nil}
-        guard let jsonData = try? NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe) else {return nil}
-        guard let jsonResult = try? NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments) else {return nil}
-        guard let str = jsonResult.objectForKey(key) as? String else {return nil}
+    func getJSONValueFromFile(_ fileName:String, key:String) -> String? {
+        let bundle = Bundle(for: type(of: self))
+        guard let path = bundle.path(forResource: fileName, ofType: "json") else {return nil}
+        guard let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path), options: NSData.ReadingOptions.mappedIfSafe) else {return nil}
+        guard let jsonResult = try? JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) else {return nil}
+        guard let str = (jsonResult as AnyObject).object(forKey: key) as? String else {return nil}
         return str
     }
 }

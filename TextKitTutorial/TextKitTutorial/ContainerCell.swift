@@ -19,12 +19,4 @@ class ContainerCell: UITableViewCell {
     
     var subContainerViews:[UIView] = [UIView]()
     
-    func configure(with model: ViewType) {
-        switch model.type {
-        case Type.ImageView:
-            
-        default:
-            <#code#>
-        }
-    }
 }

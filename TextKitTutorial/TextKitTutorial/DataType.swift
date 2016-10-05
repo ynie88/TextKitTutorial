@@ -13,26 +13,26 @@ let ImageAttributeName                  = "ImageAttributeName"
 let CustomDataAttributeName             = "CustomDataAttributeName"
 
 enum DetectedType : Int, CustomStringConvertible {
-    case Mention
-    case HashTag
-    case URL
-    case Email
-    case Image
-    case Custom
+    case mention
+    case hashTag
+    case url
+    case email
+    case image
+    case custom
     
     var description: String {
         switch self {
-        case .Mention:
+        case .mention:
             return "Mention"
-        case .HashTag:
+        case .hashTag:
             return "HashTag"
-        case .URL:
+        case .url:
             return "URL"
-        case .Email:
+        case .email:
             return "Email"
-        case .Image:
+        case .image:
             return "Image"
-        case .Custom:
+        case .custom:
             return "Custom"
         }
     }

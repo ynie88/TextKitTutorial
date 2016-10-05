@@ -11,22 +11,22 @@ import UIKit
 import SnapKit
 
 class EnlargeImageVC: UIViewController {
-    private lazy var imageView:UIImageView = {imageView in
-        imageView.contentMode = .ScaleAspectFit
+    fileprivate lazy var imageView:UIImageView = {imageView in
+        imageView.contentMode = .scaleAspectFit
         self.view.addSubview(imageView)
         return imageView
     }(UIImageView())
     
-    private lazy var closeButton:UIButton = {button in
-        button.setTitle("close", forState: .Normal)
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        button.addTarget(self, action: #selector(self.close), forControlEvents: .TouchUpInside)
-        button.userInteractionEnabled = true
+    fileprivate lazy var closeButton:UIButton = {button in
+        button.setTitle("close", for: UIControlState())
+        button.setTitleColor(UIColor.white, for: UIControlState())
+        button.addTarget(self, action: #selector(self.close), for: .touchUpInside)
+        button.isUserInteractionEnabled = true
         self.view.addSubview(button)
         return button
     }(UIButton())
     
-    func configWithImage(image:UIImage) {
+    func configWithImage(_ image:UIImage) {
         imageView.image = image
 
         view.setNeedsUpdateConstraints()
@@ -48,6 +48,6 @@ class EnlargeImageVC: UIViewController {
     }
     
     func close() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
