@@ -19,6 +19,11 @@
 		4C87C2401CEBA8710021C157 /* ForumsTopicsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C23F1CEBA8710021C157 /* ForumsTopicsPresenter.swift */; };
 		4C87C2421CEBA8810021C157 /* ForumsTopicModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C2411CEBA8810021C157 /* ForumsTopicModelView.swift */; };
 		4C87C2441CEBB5A60021C157 /* ForumTopicsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C87C2431CEBB5A60021C157 /* ForumTopicsInteractor.swift */; };
+		4CAD0F7D1CF0B0AE0063272D /* ForumsCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD0F7C1CF0B0AE0063272D /* ForumsCategoriesViewController.swift */; };
+		4CAD0F7F1CF0B0BE0063272D /* ForumsCategoriesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD0F7E1CF0B0BE0063272D /* ForumsCategoriesRouter.swift */; };
+		4CAD0F811CF0B0CC0063272D /* ForumsCategoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD0F801CF0B0CC0063272D /* ForumsCategoriesInteractor.swift */; };
+		4CAD0F831CF0B0DA0063272D /* ForumsCategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD0F821CF0B0DA0063272D /* ForumsCategoriesPresenter.swift */; };
+		4CAD0F851CF0B0E60063272D /* ForumsCategoriesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD0F841CF0B0E60063272D /* ForumsCategoriesConfigurator.swift */; };
 		B118CB01BDA65549F87DA41F /* Pods_WWForumsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3CA626261429A8406A5BA6E /* Pods_WWForumsTests.framework */; };
 		F281443A3E0A22DEFBB80855 /* Pods_WWForums.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B669679B224CD37CCD46D9 /* Pods_WWForums.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +56,11 @@
 		4C87C23F1CEBA8710021C157 /* ForumsTopicsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsTopicsPresenter.swift; sourceTree = "<group>"; };
 		4C87C2411CEBA8810021C157 /* ForumsTopicModelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsTopicModelView.swift; sourceTree = "<group>"; };
 		4C87C2431CEBB5A60021C157 /* ForumTopicsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumTopicsInteractor.swift; sourceTree = "<group>"; };
+		4CAD0F7C1CF0B0AE0063272D /* ForumsCategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsCategoriesViewController.swift; sourceTree = "<group>"; };
+		4CAD0F7E1CF0B0BE0063272D /* ForumsCategoriesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsCategoriesRouter.swift; sourceTree = "<group>"; };
+		4CAD0F801CF0B0CC0063272D /* ForumsCategoriesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsCategoriesInteractor.swift; sourceTree = "<group>"; };
+		4CAD0F821CF0B0DA0063272D /* ForumsCategoriesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsCategoriesPresenter.swift; sourceTree = "<group>"; };
+		4CAD0F841CF0B0E60063272D /* ForumsCategoriesConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumsCategoriesConfigurator.swift; sourceTree = "<group>"; };
 		5A0E413DD885AA5E9B3A4C99 /* Pods-WWForumsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForumsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests.release.xcconfig"; sourceTree = "<group>"; };
 		852C2BFF419700B2008E3238 /* Pods-WWForumsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWForumsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWForumsTests/Pods-WWForumsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		87B669679B224CD37CCD46D9 /* Pods_WWForums.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WWForums.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +198,7 @@
 		4C87C23D1CEBA8280021C157 /* Forums */ = {
 			isa = PBXGroup;
 			children = (
+				4CAD0F761CF0B0580063272D /* List Categories Page */,
 				4C87C23E1CEBA83E0021C157 /* Topics Page */,
 			);
 			name = Forums;
@@ -206,6 +217,58 @@
 				4C00AF131CEF623B009FF208 /* Configurator */,
 			);
 			name = "Topics Page";
+			sourceTree = "<group>";
+		};
+		4CAD0F761CF0B0580063272D /* List Categories Page */ = {
+			isa = PBXGroup;
+			children = (
+				4CAD0F7B1CF0B0890063272D /* Configurator */,
+				4CAD0F7A1CF0B0830063272D /* Presenter */,
+				4CAD0F791CF0B07E0063272D /* Interactor */,
+				4CAD0F781CF0B0780063272D /* Router */,
+				4CAD0F771CF0B06D0063272D /* View Controller */,
+			);
+			name = "List Categories Page";
+			sourceTree = "<group>";
+		};
+		4CAD0F771CF0B06D0063272D /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4CAD0F7C1CF0B0AE0063272D /* ForumsCategoriesViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		4CAD0F781CF0B0780063272D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				4CAD0F7E1CF0B0BE0063272D /* ForumsCategoriesRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		4CAD0F791CF0B07E0063272D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				4CAD0F801CF0B0CC0063272D /* ForumsCategoriesInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		4CAD0F7A1CF0B0830063272D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4CAD0F821CF0B0DA0063272D /* ForumsCategoriesPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		4CAD0F7B1CF0B0890063272D /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				4CAD0F841CF0B0E60063272D /* ForumsCategoriesConfigurator.swift */,
+			);
+			name = Configurator;
 			sourceTree = "<group>";
 		};
 		D00590F088E205D2FD37A60F /* Pods */ = {
@@ -420,12 +483,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C00AF1F1CEF9584009FF208 /* ForumsTopicsViewController.swift in Sources */,
+				4CAD0F851CF0B0E60063272D /* ForumsCategoriesConfigurator.swift in Sources */,
 				4C87C2421CEBA8810021C157 /* ForumsTopicModelView.swift in Sources */,
+				4CAD0F811CF0B0CC0063272D /* ForumsCategoriesInteractor.swift in Sources */,
 				4C87C2401CEBA8710021C157 /* ForumsTopicsPresenter.swift in Sources */,
+				4CAD0F831CF0B0DA0063272D /* ForumsCategoriesPresenter.swift in Sources */,
 				4C87C2201CEBA5100021C157 /* ViewController.swift in Sources */,
+				4CAD0F7D1CF0B0AE0063272D /* ForumsCategoriesViewController.swift in Sources */,
 				4C00AF1D1CEF9571009FF208 /* ForumsTopicsRouter.swift in Sources */,
 				4C87C2441CEBB5A60021C157 /* ForumTopicsInteractor.swift in Sources */,
 				4C00AF151CEF6258009FF208 /* ForumsTopicsConfigurator.swift in Sources */,
+				4CAD0F7F1CF0B0BE0063272D /* ForumsCategoriesRouter.swift in Sources */,
 				4C87C21E1CEBA5100021C157 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
